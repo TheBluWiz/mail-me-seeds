@@ -20,7 +20,9 @@ SeedRequests.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-/**Maybe have a description spot and image area? */
+    description: {
+      type: DataTypes.STRING
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
