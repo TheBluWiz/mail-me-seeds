@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class SeedOffers extends Model {}
 
@@ -11,21 +11,24 @@ SeedOffers.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    seedName: {
-      type: DataTypes.STRING,
-      allowNull: false,
+   seedName: {
+    type: DataTypes.STRING,
+    allowNull: false,
     },
     offerPostDate: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-/**Maybe have a description spot and image area? */
+    offerDescription: {
+      type: DataTypes.STRING,
+    },
+    /**Maybe have image area? */
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
   },
@@ -34,7 +37,7 @@ SeedOffers.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'SeedOffers',
+    modelName: "SeedOffers",
   }
 );
 

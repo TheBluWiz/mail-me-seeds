@@ -12,7 +12,7 @@ SeedRequests.init(
       autoIncrement: true,
     },
     requestedSeed: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     requestPostDate: {
@@ -20,13 +20,17 @@ SeedRequests.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    description: {
-      type: DataTypes.STRING
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
+        key: 'id',
+      },
+    },
+    seedoffer_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'SeedOffers',
         key: 'id',
       },
     },
