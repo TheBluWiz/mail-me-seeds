@@ -9,30 +9,31 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const options = {
-  from: process.env.EMAIL_ADDRESS,
-  to: process.env.TEST_RECIPIENT,
-  subject: "The Seeds You Requested",
-  text: `Thank you for requesting these heirloom seeds. They have been shipped!!
-  
-  Please do not respond to this email address as it is not monitored`
+const theFerryman  = function (options) {
+  transporter.sendMail(options, (err, info) => {
+    if (err) return console.log(err);
+    console.log("Sent: " + info.response)
+  })
 }
 
-// example set of options
-// const options = {
-//  from: process.env.EMAIL_ADDRESS,
-//  to: process.env.TEST_RECIPIENT,
-//  subject: "The Seeds You Requested",
-//  text: `Thank you for requesting these heirloom seeds. They have been shipped!!
-// 
-// Please do not respond to this email
-// address as it is not monitored`
-// 
-// 
+const sendmail = function (name, recipient, messageType, customLink) {
+  switch (messageType) {
+    case 'password':
+      const options = {
+        from: process.env.EMAIL_ADDRESS,
+        to: recipient,
+        subject: "Password Reset Request",
+        text: `<pre>Hi ${name},\n\nForgot your password?\nWe received a request to reset the password for your account.\n\nTo reset your password, click on the button below:\n</pre><a href="https://localhost:3001/${customLink}><button>Reset Password</button></a><pre>\n\nOr copy and paste the URL into your browser:\n<a href="https://localhost:3001/${customLink}>https://localhost:3001/${customLink}</a>`
+      }
+      theFerryman(options);
+      break;
+    case 'request':
+      break;
+    case 'incoming':
+      break;
+  }
+}
 
+user = req.session.user
+sendmail("Jamey Wicklund", "jamey_w@icloud.com", "password", "localhost:3001/resetpassword/asdl;fkjf")
 
-
-transporter.sendMail(options, (err, info) => {
-  if (err) return console.log(err);
-  console.log("Sent: " + info.response)
-})
