@@ -4,6 +4,7 @@ const { SeedOffers, User } = require('../models');
 const userData = require('./userData.json');
 const seedsData = require('./seedsData.json');
 
+
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
@@ -13,7 +14,7 @@ const seedDatabase = async () => {
   });
 
   for (const seed of seedsData) {
-    await Seeds.create({
+    await SeedOffers.create({
       ...seed,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
