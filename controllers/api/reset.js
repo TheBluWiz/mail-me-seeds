@@ -13,12 +13,17 @@ router.use('/', async (req, res) => {
     })
     if (uniqueLink === null) uniqueLink = newLink;
   }
+  requestedUser = await User.findOne({
+    where: {
+      email: req.body.email
+    }
+  })
   resetRequest = {
     resetLink: uniqueLink,
-    user_id: req.session.id
+    user_id: requestedUser.id
   }
   user = {
-    name: req.session.name,
+    name: requestedUser.name,
     email: req.body.email
   }
   const logRequest = await EmailReset.create(resetRequest);
