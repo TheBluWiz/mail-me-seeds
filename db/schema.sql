@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS seedShare_db
-CREATE DATABASE seedSharers_db
+DROP DATABASE IF EXISTS seedShare_db;
+CREATE DATABASE seedShare_db;
 
-use seedShare_db
+use seedShare_db;
