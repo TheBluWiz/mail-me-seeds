@@ -51,5 +51,5 @@ router.use('/:link', async (req, res) => {
   });
 
   await updatedUser.save();
-  res.render('passwordReset', resetUser)
+  res.status(200).json({ message: "Password Reset"});
 })
