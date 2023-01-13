@@ -20,9 +20,6 @@ SeedRequests.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    description: {
-      type: DataTypes.STRING
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

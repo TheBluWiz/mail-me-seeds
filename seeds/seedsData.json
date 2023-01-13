@@ -1,11 +1,11 @@
 [
   {
-    "seedName": "Potato"
+    "offerDescription": "Potatoes: Good for French Fries"
   },
   {
-    "seedName": "Tomato"
+    "offerDescription": "Tomatoes: Good for salsa"
   },
   {
-    "seedName": "Cucumbers"
+    "offerDescription": "Cucumbers: Good for salads"
   }
 ]
