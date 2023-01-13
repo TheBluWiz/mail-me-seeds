@@ -11,6 +11,10 @@ SeedOffers.init(
       primaryKey: true,
       autoIncrement: true,
     },
+   seedName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    },
     offerPostDate: {
       type: DataTypes.DATE,
       allowNull: false,

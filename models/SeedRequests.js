@@ -20,7 +20,7 @@ SeedRequests.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    user_id:{
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
@@ -30,7 +30,7 @@ SeedRequests.init(
     seedoffer_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'seedoffers',
+        model: 'SeedOffers',
         key: 'id',
       },
     },
