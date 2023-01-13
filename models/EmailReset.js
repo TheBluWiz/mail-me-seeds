@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class SeedOffers extends Model {}
+class EmailReset extends Model {}
 
-SeedOffers.init(
+EmailReset.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,16 +11,10 @@ SeedOffers.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    seedName: {
+    resetLink: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
-    offerPostDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-/**Maybe have a description spot and image area? */
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -38,4 +32,4 @@ SeedOffers.init(
   }
 );
 
-module.exports = SeedOffers;
+module.exports = EmailReset;

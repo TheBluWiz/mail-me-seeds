@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class SeedOffers extends Model {}
+class SeedRequests extends Model {}
 
-SeedOffers.init(
+SeedRequests.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,11 +11,11 @@ SeedOffers.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    seedName: {
+    requestedSeed: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    offerPostDate: {
+    requestPostDate: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
@@ -34,8 +34,8 @@ SeedOffers.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'SeedOffers',
+    modelName: 'SeedRequests',
   }
 );
 
-module.exports = SeedOffers;
+module.exports = SeedRequests;
