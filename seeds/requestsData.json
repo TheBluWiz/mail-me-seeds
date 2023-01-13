@@ -1,8 +1,8 @@
 [
   {
-    "requestedSeed": "Tomatoes"
+    "requestedSeed": 1
   },
   {
-    "requestedSeed": "Carrots"
+    "requestedSeed": 3
   }
 ]
