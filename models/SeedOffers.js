@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Seeds extends Model {}
+class SeedOffers extends Model {}
 
-Seeds.init(
+SeedOffers.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -14,6 +14,11 @@ Seeds.init(
     seedName: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    offer_posted: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
 /**Maybe have a description spot and image area? */
     user_id: {
@@ -33,4 +38,4 @@ Seeds.init(
   }
 );
 
-module.exports = Seeds;
+module.exports = SeedOffers;
