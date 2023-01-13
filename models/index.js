@@ -1,6 +1,7 @@
 const User = require('./User');
 const SeedOffers = require('./SeedOffers');
 const SeedRequests = require('./SeedRequests');
+const EmailReset = require('./EmailReset')
 // const EmailReset = require('./EmailReset')
 
 User.hasMany(SeedOffers, {
@@ -21,4 +22,4 @@ SeedRequests.belongsTo(User,{
   foreignKey: "user_id"
 } )
 
-module.exports = { User, SeedOffers, SeedRequests };
+module.exports = { User, SeedOffers, SeedRequests, EmailReset };
