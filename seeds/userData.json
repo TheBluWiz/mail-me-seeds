@@ -1,17 +1,20 @@
 [
   {
-    "name": "SallyMae",
+    "username": "SallyMae",
     "email": "Stuck@bankrupt.com",
+    "mailing": "5555 Get lost Zip:90044",
     "password": "password1"
   },
   {
-    "name": "JohnDeere",
+    "username": "JohnDeere",
     "email": "gardener@gardening.com",
+    "mailing": "3242 Not here Zip:77837",
     "password": "password1"
   },
   {
-    "name": "JoeBlower",
+    "username": "JoeBlower",
     "email": "Joe@Blow.com",
+    "mailing": "444a go home Zip:481216",
     "password": "password1"
   }
 ]
