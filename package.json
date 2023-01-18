@@ -4,7 +4,8 @@
   "description": "Seed Exchange Platform",
   "main": "server.js",
   "scripts": {
-    "watch": "nodemon server.js"
+    "watch": "nodemon server.js",
+    "seed": "node seeds/seed.js"
   },
   "repository": {
     "type": "git",
