@@ -31,5 +31,4 @@ SeedRequests.belongsTo(SeedOffers, {
   foreignKey: 'seedoffers_id',
 })
 
-
 module.exports = { User, SeedOffers, SeedRequests, EmailReset };

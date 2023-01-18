@@ -8,19 +8,20 @@ const signUpEl = document.getElementById("signUp");
 signUpEl.addEventListener('click', (event) => {
   event.preventDefault();
 
-  const signUpData = {
-    username: usernameEl.value,
-    email: emailEl.value,
-    password: passwordEl.value
-  }
-
   if (passwordEl.value !== confirmPasswordEl.value) {
     alert("Passwords do not match")
     passwordEl.value = ""
     confirmPasswordEl.value = ""
   }
+
   else {
-    postData('/api/signUp', signUpData)
+    const signUpData = {
+      username: usernameEl.value,
+      email: emailEl.value,
+      password: passwordEl.value
+    }
+
+    postData('/api/userActions/signUp', signUpData)
     .then((response) => {
       if (response.ok) document.location.replace('/user/mailing')
       else alert("Error Creating Account")
