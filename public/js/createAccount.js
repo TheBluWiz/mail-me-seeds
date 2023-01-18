@@ -4,13 +4,14 @@ const confirmPasswordEl = document.getElementById("confirmPassword");
 const mailingAddressEl = document.getElementById("mailingAddress");
 const signUpEl = document.getElementById("signUp");
 
-const signUpData = {
-	email: emailEl.value,
-	password: passwordEl.value,
-};
-
 signUpEl.addEventListener("click", (event) => {
 	event.preventDefault();
+
+	const signUpData = {
+		email: emailEl.value,
+		password: passwordEl.value,
+	};
+
 	if (passwordEl.value !== confirmPasswordEl.value) {
 		alert("Passwords do not match");
 		passwordEl.value = "";

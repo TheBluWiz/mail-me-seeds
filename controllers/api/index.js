@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-const userAction = require("./userActions");
+const userActions = require("./userActions");
 
-router.use("/userAction", userAction);
+router.use("/userActions", userActions);
 
 module.exports = router;
