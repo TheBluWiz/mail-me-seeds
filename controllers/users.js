@@ -34,5 +34,4 @@ router.get("/updatepassword", async (req, res) => {
 	res.render("create-np");
 });
 
-res.render();
 module.exports = router;
