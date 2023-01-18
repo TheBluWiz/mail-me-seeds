@@ -30,12 +30,8 @@ router.get("/reset-message", async (req, res) => {
 	res.render("reset-message");
 });
 
-router.get("/createpassword", async (req, res) => {
+router.get("/updatepassword", async (req, res) => {
 	res.render("create-np");
-});
-
-router.get("/mailing", async (req, res) => {
-	res.render("mailing");
 });
 
 res.render();
