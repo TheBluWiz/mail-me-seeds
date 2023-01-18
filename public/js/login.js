@@ -2,13 +2,14 @@ const emailEl = document.getElementById("email");
 const passwordEl = document.getElementById("password");
 const loginEl = document.getElementById("login");
 
-const loginData = {
-  email: emailEl.value,
-  password: passwordEl.value
-}
-
 loginEl.addEventListener('click', (event) => {
   event.preventDefault();
+
+  const loginData = {
+    email: emailEl.value,
+    password: passwordEl.value
+  }
+  
   postData('/api/login', loginData)
   .then((response) => {
     console.log(response)
