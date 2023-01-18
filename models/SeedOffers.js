@@ -23,6 +23,10 @@ SeedOffers.init(
     offerDescription: {
       type: DataTypes.STRING,
     },
+    seedCount : {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     /**Maybe have image area? */
     user_id: {
       type: DataTypes.INTEGER,
@@ -37,7 +41,7 @@ SeedOffers.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "SeedOffers",
+    modelName: "seedoffers",
   }
 );
 
