@@ -30,7 +30,7 @@ SeedRequests.init(
     seedoffers_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'seedOffers',
+        model: 'seedoffers',
         key: 'id',
       },
     },
