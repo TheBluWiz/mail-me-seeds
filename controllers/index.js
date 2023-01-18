@@ -14,7 +14,7 @@ router.use("/user", userRoutes);
 
 //sends this router to the server.js
 router.get("/", async (req, res) => {
-	res.render("mainpage");
+  res.render("homepage");
 });
 
 module.exports = router;
