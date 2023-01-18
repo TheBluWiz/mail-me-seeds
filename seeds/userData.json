@@ -1,0 +1,17 @@
+[
+  {
+    "name": "SallyMae",
+    "email": "Stuck@bankrupt.com",
+    "password": "password1"
+  },
+  {
+    "name": "JohnDeere",
+    "email": "gardener@gardening.com",
+    "password": "password1"
+  },
+  {
+    "name": "JoeBlower",
+    "email": "Joe@Blow.com",
+    "password": "password1"
+  }
+]
