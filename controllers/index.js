@@ -13,17 +13,8 @@ router.use("/user", userRoutes);
 //on page load a visitor will see our main page that shows all the seeds that could be theirs!
 
 //sends this router to the server.js
-router.use("/", async (req, res) => {
+router.get("/", async (req, res) => {
 	res.render("mainpage");
 });
 
 module.exports = router;
-
-// router.use("/addpost", addpostRoutes);
-// router.use("/allposts", allpostsRoutes);
-// router.use("/comment", commentRoutes);
-// router.use("/homepage", homepageRoutes);
-// router.use("/mailing", mailingRoutes);
-// router.use("/mainpage", mainpageRoutes);
-// router.use("/reviewallposts", reviewallpostsRoutes);
-// router.use("/signup", signupRoutes);
