@@ -1,7 +1,7 @@
 const emailEl = document.getElementById("email");
 const passwordEl = document.getElementById("password");
 const confirmPasswordEl = document.getElementById("confirmPassword");
-// add mailing address El
+const mailingAddressEl = document.getElementById("mailingAddress")
 const signUpEl = document.getElementById("signUp");
 
 const signUpData = {
@@ -17,7 +17,7 @@ signUpEl.addEventListener('click', (event) => {
     confirmPasswordEl.value = ""
   }
   else {
-    // signUpData.mailing = ?
+    signUpData.mailing = mailingAddressEl.value;
     postData('/api/signUp', signUpData)
     .then((response) => {
       if (response.ok) document.location.replace('/user/dashboard')
