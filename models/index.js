@@ -10,7 +10,7 @@ User.hasMany(SeedOffers, {
 });
 
 SeedOffers.belongsTo(User, {
-  foreignKey: "user_id"
+  foreignKey: "user_id",
 });
 
 User.hasMany(SeedRequests,{
@@ -19,7 +19,18 @@ User.hasMany(SeedRequests,{
 } )
 
 SeedRequests.belongsTo(User,{
-  foreignKey: "user_id"
+  foreignKey: "user_id",
+  foreignKey: 'seedoffers_id'
 } )
 
-module.exports = { User, SeedOffers, SeedRequests, EmailReset };
+SeedOffers.hasMany(SeedRequests, {
+  foreignKey: 'seedoffers_id',
+  onDelete: "CASCADE"
+} )
+
+SeedRequests.belongsTo(SeedOffers, {
+  foreignKey: 'seedoffers_id',
+})
+
+
+module.exports = { User, SeedOffers, SeedRequests };

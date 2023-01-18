@@ -27,10 +27,10 @@ SeedRequests.init(
         key: 'id',
       },
     },
-    seedoffer_id: {
+    seedoffers_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'SeedOffers',
+        model: 'seedOffers',
         key: 'id',
       },
     },
@@ -40,7 +40,7 @@ SeedRequests.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'SeedRequests',
+    modelName: 'seedRequests',
   }
 );
 
