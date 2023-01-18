@@ -2,10 +2,8 @@ const usernameEl = document.getElementById("username");
 const emailEl = document.getElementById("email");
 const passwordEl = document.getElementById("password");
 const confirmPasswordEl = document.getElementById("confirmPassword");
-const mailingAddressEl = document.getElementById("mailingAddress")
+const mailingAddressEl = document.getElementById("mailingAddress");
 const signUpEl = document.getElementById("signUp");
-
-
 
 signUpEl.addEventListener('click', (event) => {
   event.preventDefault();
