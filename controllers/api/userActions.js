@@ -21,7 +21,7 @@ router.post("/signUp", async (req, res) => {
 				console.log(userData);
 				req.session.save(() => {
 					//cookie session
-					req.session.login = true; //user just logged in
+					req.session.loggedIn = true; //user just logged in
 					req.session.username = userData.username; //handed from userData
 					req.session.userID = userData.id; //created by autoincrement in db after the creation
 					res.status(200).json({ message: "Login Successful" }); //response goes back to front end
@@ -38,6 +38,31 @@ router.post("/signUp", async (req, res) => {
 		res.status(400).json(err);
 	}
 });
+
+router.put('/updateMailing', async (req, res) => {
+	console.log('Attempting Mailing Address Update..')
+	console.log(`Body:\n\n${req.body}`)
+	console.log(`Session:\n\n${req.session}`)
+	try{
+		const user = await User.findOne({
+			where: {
+				id: req.session.userID
+			}
+		})
+		try {
+			user.mailing = req.body.mailing
+			await user.save();
+			res.status(200).json({ message: "Address Updated"})
+		}
+		catch {
+			res.status(500).json({ message: "Failed to update Address"})
+		}
+	}
+	catch (err) {
+		console.log(err)
+		res.status(400).json({ message: "User Not Found"})
+	}
+})
 
 //USER LOGIN
 //posting to /api/userActions/login

@@ -15,7 +15,10 @@ router.get("/create-acct", async (req, res) => {
 });
 
 router.get("/mailing", async (req, res) => {
-	res.render("mailing");
+	const data = {
+		loggedIn: req.session.loggedIn
+	}
+	res.render("mailing", { data });
 });
 
 router.get("/dashboard", async (req, res) => {

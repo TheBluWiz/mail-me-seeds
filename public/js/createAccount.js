@@ -2,7 +2,6 @@ const usernameEl = document.getElementById("username");
 const emailEl = document.getElementById("email");
 const passwordEl = document.getElementById("password");
 const confirmPasswordEl = document.getElementById("confirmPassword");
-const mailingAddressEl = document.getElementById("mailingAddress");
 const signUpEl = document.getElementById("signUp");
 
 signUpEl.addEventListener("click", (event) => {
@@ -18,7 +17,7 @@ signUpEl.addEventListener("click", (event) => {
 			email: emailEl.value,
 			password: passwordEl.value,
 		};
-		//following needs to become a fetch call
+
 		postData("/api/userActions/signUp", signUpData)
 			.then((response) => {
 				if (response.ok) document.location.replace("/user/mailing");

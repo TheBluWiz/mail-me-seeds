@@ -4,7 +4,7 @@ const { SeedOffers } = require("../models");
 //these are the things we need for the program to run //these are file paths
 // const apiRoutes = require("./api");
 const offerRoutes = require("./offers");
-const userRoutes = require("./users");
+const userRoutes = require("./user");
 const apiRoutes = require("./api");
 
 //this is where our program actually happens //These paths are actual URL paths
