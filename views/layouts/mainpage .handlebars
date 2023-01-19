@@ -10,11 +10,21 @@
     <script src="/js/helpers.js"></script>
 </head>
 
-<body>
-    <div>
+<body>   
+    <header>
+         {{!-- alink for dashboard
+         and icon to homepage"mainpage.handlebars" --}}
+        {{#if loggedin}} 
+        show logout button
+        {{else}} 
+        show login button
+        {{/if}}       
+         <a> link</a>, (login, and log out)--if statement --}}
+    </header>             
+    {{!-- <div>
         {{#if loggedin}}
         {{!-- add body inclusive to controller file layout --}}
-        {{/if}}
+        {{/if}} --}}
     </div>
     {{{body}}}
 </body>
