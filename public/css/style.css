@@ -10,3 +10,12 @@
   margin-left: 0;
   margin-right: 0
 }
+
+.bg1 {
+  background-color: yellowgreen;
+}
+
+.kyleBorder:hover {
+  background-color: #cecece;
+  border: yellow 5px solid;
+}
