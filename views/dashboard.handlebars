@@ -1,13 +1,24 @@
-<div>
-     {{!-- <nav class=""> --}}
-    <ul class="">
-      <li class=""><a href="/user/account">My Account</a></li>
-      <li class=""><a href="/">Find Seeds</a></li>
-      <li class=""><a href="/offers/request ">Requested Seeds </a></li>
-      <li class=""><a href="/offers/myoffers ">My seed offers   </a></li>
-    </ul>
-  {{!-- </nav> --}}
+<div class="container ctxtL">
+  {{! <nav class=""> }}
+  {{! may need different param }}
+  <h2>Welcome, {{data.username}}</h2>
+  <section class="border brad m-5 py-2">
+    <div class="py-2"><a href="/user/account"><button
+          class="kyleBorder btnBg accountBtns col-6"
+        >My Account</button></a></div>
+
+    <div class="py-2"><a href="/"><button
+          class="kyleBorder btnBg accountBtns col-6"
+        >Find Seeds</button></a></div>
+
+    <div class="py-2"><a href="/offers/request "><button
+          class="kyleBorder btnBg accountBtns col-6"
+        >Requested Seeds</button></a></div>
+
+    <div class="py-2"><a href="/offers/myoffers "><button
+          class="kyleBorder btnBg accountBtns col-6"
+        >My Seed Offers</button></a></div>
+
+  </section>
+  {{! </nav> }}
 </div>
-
-
-

@@ -1,3 +1,20 @@
+.border {
+  border : 5px solid black
+}
+.brad {
+  border-radius: 40%;
+}
+.border2 {
+  border : 5px solid black;
+  max-width: 50%;
+  margin: 0 auto
+}
+
+.accountBtns {
+  border-radius: 37%;
+  padding: 10px;
+}
+
 .kyleBorder {
   border : 5px solid black
 }
@@ -6,7 +23,25 @@
   text-align: center;
 }
 
+.ctxtL {
+  text-align: center;
+  font-size: 1.75rem;
+}
+  
+.btnBg{
+  background-color: yellow;
+}
+
 .cenAlign{
   margin-left: 0;
   margin-right: 0
+}
+
+.bg1 {
+  background-color: yellowgreen;
+}
+
+.kyleBorder:hover {
+  background-color: #cecece;
+  border: yellow 5px solid;
 }

@@ -9,18 +9,23 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/helpers.js"></script>
 </head>
-
-<body>
-    <header>
-        <a href="/"><img src="../../public/images/Header-image.jpg" alt="Mailbox made from seed logo"></a>
-        <a href="/user/dashboard">Dashboard</a>
-        {{#if data.loggedIn}}
-        <a href="/user/logout">Logout</a>
-        {{else}}
-        <a href="/user/">Login</a>
-        {{/if}}
-    </header>
+{{!-- this will thurn the entire background of the html to a yellow-green if we want --}}
+{{!-- <body class="bg1"> --}}
+<body class="bg1">
+    <div> 
+        <img src="../../public/images/Header-image.jpg" alt="seed Banner Image">
+        <header class="">
+            <div class="row ctxt">        
+                <div class="col-4"><button class="btn btn-large btnBg ctxtL"><a href="/user/dashboard">Dashboard</a></button></div> 
+                <div class="col-4"><a href="/"><img src="../../public/images/Header-image.jpg" alt="Mailbox made from seed logo"></a></div>
+                {{#if data.loggedin}}
+                <div class="col-4"><a href="/user/logout">Logout</a></div>
+                {{else}}
+                <div class="col-4"><button class="btn btn-large btnBg ctxtL"><a href="/user/">Login</a></button></div>
+                {{/if}}
+            </div>
+        </header>
+    </div>
     {{{body}}}
 </body>
-
 </html>
