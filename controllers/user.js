@@ -6,6 +6,11 @@ router.get("/", async (req, res) => {
 	res.render("login"); // renders login.handlebars
 });
 
+router.get("/logout", async (req, res) => {
+	req.session.destroy();
+	res.render("login")
+})
+
 router.get("/confirm", async (req, res) => {
 	res.render("confirm");
 });
