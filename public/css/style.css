@@ -1,9 +1,35 @@
+.border {
+  border : 5px solid black
+}
+.brad {
+  border-radius: 40%;
+}
+.border2 {
+  border : 5px solid black;
+  max-width: 50%;
+  margin: 0 auto
+}
+
+.accountBtns {
+  border-radius: 37%;
+  padding: 10px;
+}
+
 .kyleBorder {
   border : 5px solid black
 }
 
 .ctxt {
   text-align: center;
+}
+
+.ctxtL {
+  text-align: center;
+  font-size: 1.75rem;
+}
+  
+.btnBg{
+  background-color: yellow;
 }
 
 .cenAlign{

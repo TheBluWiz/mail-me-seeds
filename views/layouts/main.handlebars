@@ -16,12 +16,12 @@
         <img src="../../public/images/Header-image.jpg" alt="seed Banner Image">
         <header class="">
             <div class="row ctxt">        
-                <div class="col-4"><button class="btn btn-large"><a href="/user/dashboard">Dashboard</a></button></div> 
+                <div class="col-4"><button class="btn btn-large btnBg ctxtL"><a href="/user/dashboard">Dashboard</a></button></div> 
                 <div class="col-4"><a href="/"><img src="../../public/images/Header-image.jpg" alt="Mailbox made from seed logo"></a></div>
                 {{#if data.loggedin}}
                 <div class="col-4"><a href="/user/logout">Logout</a></div>
                 {{else}}
-                <div class="col-4"><button class="btn btn-large"><a href="/user/">Login</a></button></div>
+                <div class="col-4"><button class="btn btn-large btnBg ctxtL"><a href="/user/">Login</a></button></div>
                 {{/if}}
             </div>
         </header>
