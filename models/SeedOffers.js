@@ -11,12 +11,16 @@ SeedOffers.init(
       primaryKey: true,
       autoIncrement: true,
     },
-   seedName: {
+    seedName: {
     type: DataTypes.STRING,
     allowNull: false,
     },
     offerDescription: {
       type: DataTypes.STRING,
+    },
+    webLink: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     /**Maybe have image area? */
     user_id: {
