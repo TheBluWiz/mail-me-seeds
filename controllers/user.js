@@ -29,7 +29,10 @@ router.get("/mailing", async (req, res) => {
 });
 
 router.get("/dashboard", async (req, res) => {
-  res.render("dashboard");
+  data = {
+    loggedIn: req.session.loggedIn
+  }
+  res.render("dashboard", { data });
 });
 
 router.get("/resetpassword", async (req, res) => {
@@ -37,27 +40,27 @@ router.get("/resetpassword", async (req, res) => {
 });
 
 router.get("/reset-message", async (req, res) => {
-  res.render("reset-message");
+  data = {
+    loggedIn: req.session.loggedIn
+  }
+  res.render("reset-message", { data });
 });
 
 router.get("/updatepassword/:resetLink", async (req, res) => {
-  try {
-    const resetRequest = await EmailReset.findOne({
-      where: {
-        resetLink: req.params.resetLink,
-      },
-    });
-
+  const resetRequest = await EmailReset.findOne({
+    where: {
+      resetLink: req.params.resetLink,
+    },
+  });
+  if (resetRequest !== null) {
     const data = {
       resetLink: req.params.resetLink,
     };
 
     console.log(data);
-    res.render("create-np", data);
-  } catch (err) {
-    console.log(err);
-    res.render("expired-link");
+    return res.render("create-np", data);
   }
+    res.render("expired-link");
 });
 
 router.get("/account", async (req, res) => {

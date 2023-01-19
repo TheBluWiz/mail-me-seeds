@@ -115,6 +115,13 @@ router.put('/resetPassword', async (req, res) => {
 	
 		user.password = req.body.password
 		await user.save();
+
+		await EmailReset.destroy.findOne({
+			where: {
+				resetLink: req.body.resetLink
+			}
+		})
+		
 		console.log("Reset successful!")
 		res.status(200).json({ message: "Password Reset"})
 	}
