@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, SeedRequests } = require("../../models");
+const { User, SeedRequests, EmailReset } = require("../../models");
 const bcrypt = require("bcrypt");
 
 //USER SIGN UP
@@ -98,6 +98,32 @@ router.post("/login", async (req, res) => {
 		return res.status(404).json(err);
 	}
 });
+
+router.put('/resetPassword', async (req, res) => {
+	try {
+		const resetRequest = await EmailReset.findOne({
+			where: {
+				resetLink: req.body.resetLink
+			}
+		})
+	
+		const user = await User.findOne({
+			where: {
+				id: resetRequest.user_id
+			}
+		})
+	
+		user.password = req.body.password
+		await user.save();
+		console.log("Reset successful!")
+		res.status(200).json({ message: "Password Reset"})
+	}
+	catch (err) {
+		res.status(500)
+	}
+	
+
+})
 
 //post requesting seeds at main page
 //the request body will be a Seed Request (or maybe multiple seedRequest))
