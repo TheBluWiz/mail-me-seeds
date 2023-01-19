@@ -15,17 +15,8 @@ SeedOffers.init(
     type: DataTypes.STRING,
     allowNull: false,
     },
-    offerPostDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
     offerDescription: {
       type: DataTypes.STRING,
-    },
-    seedCount : {
-      type: DataTypes.INTEGER,
-      allowNull: false
     },
     /**Maybe have image area? */
     user_id: {
