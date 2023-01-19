@@ -19,7 +19,7 @@ router.use("/api", apiRoutes);
 router.get("/", async (req, res) => {
   const currentOffersData = await SeedOffers.findAll();
   const data = {
-    loggedIn: req.session.login,
+    loggedIn: req.session.loggedIn,
   };
   if (currentOffersData)
     data.currentOffers = currentOffersData.map((offer) =>
