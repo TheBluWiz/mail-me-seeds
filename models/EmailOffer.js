@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class EmailOffer extends Model {}
-// Not using this table ATM
+// will Not using this table ATM
 EmailOffer.init(
   {
     id: {
