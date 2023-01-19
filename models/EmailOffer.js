@@ -11,7 +11,7 @@ EmailOffer.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    resetLink: {
+    resetlink: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -25,7 +25,7 @@ EmailOffer.init(
     confirmedOffer: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'seedoffers',
+        model: 'seedOffers',
         key: 'id'
       }
     }
@@ -34,7 +34,7 @@ EmailOffer.init(
     sequelize,
     timestamps: false,
     freezeTableName: true,
-    underscored: true,
+    // underscored: true, /**This makes the keys( id, resetLink etc, ) at database level look like reset_link rather than what is shown in current model > resetlink*/
     modelName: 'emailOffer',
   }
 );

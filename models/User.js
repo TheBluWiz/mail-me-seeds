@@ -42,7 +42,7 @@ User.init(
     },
   },
   {
-    hooks: { /*need new argument? \/ */
+    hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
@@ -55,7 +55,7 @@ User.init(
     sequelize,
     timestamps: false,
     freezeTableName: true,
-    underscored: true,
+    // underscored: true, 
     modelName: 'user',
   }
 );
