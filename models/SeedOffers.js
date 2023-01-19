@@ -11,20 +11,15 @@ SeedOffers.init(
       primaryKey: true,
       autoIncrement: true,
     },
-   seedName: {
+    seedName: {
     type: DataTypes.STRING,
     allowNull: false,
-    },
-    offerPostDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
     offerDescription: {
       type: DataTypes.STRING,
     },
-    seedCount : {
-      type: DataTypes.INTEGER,
+    webLink: {
+      type: DataTypes.STRING,
       allowNull: false
     },
     /**Maybe have image area? */

@@ -1,29 +1,34 @@
 <div>
-    <div>
-      <h2>Sign Up</h2>
-    </div>
-    <divrole="tabpanel">
-      <form >
-        <div>
-          <label for="username-input-signup">Username</label>
-          <input type="text"/>
-        </div>
-        <div>
-          <label for="password-input-signup">Password</label>
-          <input type="password"/>
-        </div>
-        <div>
-          <label for="confirm-input-password">Confirm Password</label>
-          <input type="confirm password"/>
-        </div>
-        <div>
-          <label for="Mailing address">Mailing address</label>
-          <form type="mailing address"></form>
-        </div>
-        <a href="/mailing"><button>Sign Up!</button></a>
-    
-      </form>
-    </div>
+  <div>
+    <h2>Sign Up</h2>
   </div>
-  
-  <script src="/public"></script>
+  <divrole="tabpanel">
+    <form>
+      <div>
+        <label type="text">Username</label>
+        <input type="text" id="username">
+      </div>
+      <div>
+        <label for="email-input-signup">Email</label>
+        <input type="text" id="email" />
+      </div>
+      <div>
+        <label for="password-input-signup">Password</label>
+        <input type="password" id="password" />
+      </div>
+      <div>
+        <label for="confirm-input-password">Confirm Password</label>
+        <input type="password" id="confirmPassword" />
+      </div>
+      {{!-- Need to move mailing to own view --}}
+      <div>
+        <label for="mailingAddress">Mailing Address</label>
+        <textarea name="mailingAddress" id="mailingAddress" cols="30" rows="5"></textarea>
+      </div>
+      <button id="signUp">Sign Up!</button>
+
+    </form>
+</div>
+</div>
+
+<script src="/js/createAccount.js"></script>

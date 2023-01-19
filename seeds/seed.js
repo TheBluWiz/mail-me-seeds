@@ -1,9 +1,10 @@
-const sequelize = require('../config/connection');
-const { SeedOffers, User, SeedRequests } = require('../models');
+const sequelize = require("../config/connection");
+const { SeedOffers, User, SeedRequests, EmailReset } = require("../models");
 
-const userData = require('./userData.json');
-const seedsData = require('./seedsData.json');
-const requestsData = require('./requestsData.json');
+const userData = require("./userData.json");
+const seedsData = require("./seedsData.json");
+const requestsData = require("./requestsData.json");
+// const emailData = require("./emailData")
 // const SeedRequests = require('../models/SeedRequests');
 
 const seedDatabase = async () => {
@@ -19,24 +20,22 @@ const seedDatabase = async () => {
       ...seedOffer,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
-    // return seedOffer didnt work
   }
+  //Doesnt work the way i want it too \/
   // const requests = await SeedRequests.bulkCreate(requestsData, {
   //   individualHooks: true,
   //   returning: true,
   // });
-  console.log(seedsData)
+
+  //Seeds SeedRequests to database and applies a user_id at random
   for (const request of requestsData) {
-    
     await SeedRequests.create({
-      // ...requests,
-      
       ...request,
       user_id: users[Math.floor(Math.random() * users.length)].id,
-      seedoffers_id: seedsData[Math.floor(Math.random() * seedsData.length)].id,
-      // seedoffers_id: request.
-    })
+    });
   }
+
+  // for (const emailReset of )
 
   process.exit(0);
 };

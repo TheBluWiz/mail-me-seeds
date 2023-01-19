@@ -11,10 +11,19 @@
 
 <body>
     <div>
-        {{if logged in}}
+        <ul>
+        <li><a href="/dashboard"><button>dashboard</button></a></li>
+        <li><a href="/request"><button>Requested Seeds</button></a></li>
+        <li><a href="/myoffers"><button>My seed offers</button></a></li>
+        </ul>
         {{!-- add body inclusive to controller file layout --}}
         {{{body}}}
-        {{if}}
     </div>
+
+<script></script>
 </body>
+
+<footer>
+ <a href="/login"><botton>Logout</botton></a>   
+</footer>
 </html>

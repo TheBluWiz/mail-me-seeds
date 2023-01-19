@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class SeedRequests extends Model {}
-
-SeedRequests.init(
+class EmailOffer extends Model {}
+// will Not using this table ATM
+EmailOffer.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,33 +11,32 @@ SeedRequests.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    requestPostDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
+    resetLink: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    user_id: {
+    user_id: { // who offered the seeds
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
       },
     },
-    seedoffers_id: {
+    confirmedOffer: {
       type: DataTypes.INTEGER,
       references: {
         model: 'seedoffers',
-        key: 'id',
-      },
-    },
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'seedRequests',
+    modelName: 'emailOffer',
   }
 );
 
-module.exports = SeedRequests;
+module.exports = EmailOffer;

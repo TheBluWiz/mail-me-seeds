@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { EmailReset, User } = require('../../models')
 const { theFerryman, linkGenerator } = require('../../utils')
 
-router.post('/', async (req, res) => {
+router.post('/resetRequest', async (req, res) => {
   let uniqueLink = false;
   while(!uniqueLink) {
     newLink = linkGenerator();
@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
 })
 
 // potentially save email in cookie and verify that the User with id user_id has matching email before executing the following code.
-router.put('/:link', async (req, res) => {
+router.put('/requestedReset/:link', async (req, res) => {
   try {
     const resetUser = await EmailReset.findOne({
       where: {
