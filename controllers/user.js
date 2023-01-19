@@ -42,4 +42,8 @@ router.get("/updatepassword", async (req, res) => {
 	res.render("create-np");
 });
 
+router.get("/account", async (req, res) => {
+	res.render("construction")
+})
+
 module.exports = router;

@@ -76,11 +76,14 @@ router.post("/login", async (req, res) => {
 				email: req.body.email.trim(), //finds one user where the email is the email from the req.body
 			},
 		});
+		console.log(requestedUser)
 		if (!requestedUser) {
+			console.log("User not Found!")
 			return res.status(400).json({ message: "No user found" });
 		}
 		const validUser = requestedUser.checkPassword(req.body.password);
 		if (!validUser) {
+			console.log("Wrong Password!")
 			return res.status(400).json({ message: "Incorrect Password" });
 		}
 		req.session.save(() => {
