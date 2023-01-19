@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-//localhost3001:/users/
-//these routes are for things that users do that are related to their account existing
+//localhost3001:/user/  //note: user, It's not plural!
+//these routes are for delivering account related views to the user in the URL
 router.get("/", async (req, res) => {
 	res.render("login"); // renders login.handlebars
 });
