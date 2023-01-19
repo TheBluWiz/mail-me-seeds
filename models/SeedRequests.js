@@ -11,11 +11,6 @@ SeedRequests.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    requestPostDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -26,16 +21,16 @@ SeedRequests.init(
     seedoffers_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'seedoffers',
+        model: 'seedOffers',
         key: 'id',
       },
     },
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
-    underscored: true,
+    // underscored: true,
     modelName: 'seedRequests',
   }
 );
