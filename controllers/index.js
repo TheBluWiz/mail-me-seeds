@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { SeedOffers } = require('../models');
 
 //these are the things we need for the program to run //these are file paths
 // const apiRoutes = require("./api");
@@ -16,7 +17,12 @@ router.use("/api", apiRoutes);
 
 //sends this router to the server.js
 router.get("/", async (req, res) => {
-	res.render("mainpage");
+	try {
+		const currentSeeds = await SeedOffers.findAll();
+		
+		res.render("mainpage");
+	}
+	
 });
 
 module.exports = router;

@@ -22,6 +22,13 @@ EmailOffer.init(
         key: 'id',
       },
     },
+    confirmedOffer: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'seedoffers',
+        key: 'id'
+      }
+    }
   },
   {
     sequelize,
