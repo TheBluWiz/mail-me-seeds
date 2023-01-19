@@ -11,10 +11,6 @@ SeedRequests.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    requestedSeed: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     requestPostDate: {
       type: DataTypes.DATE,
       allowNull: false,
