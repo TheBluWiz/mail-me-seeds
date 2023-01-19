@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, SeedRequests } = require("../../models");
 const bcrypt = require("bcrypt");
 
 //USER SIGN UP
@@ -14,10 +14,10 @@ router.post("/signUp", async (req, res) => {
 			},
 		});
 		if (userUnique === null) {
-			console.log("Creating Unique User"); //This is not console logging for some reason!
+			console.log("Creating Unique User");
 			try {
 				//deleted the newuser const because the req.body is literally the new user object
-				const userData = await User.create(req.body); //req.body has username email and password per the const signUpData in createAccount.js
+				const userData = await User.create(req.body); //req.body has username email and password per the const signUpData in createAccount.js //userData is a new class "User" object
 				console.log(userData);
 				req.session.save(() => {
 					//cookie session
@@ -44,7 +44,7 @@ router.post("/signUp", async (req, res) => {
 //form is in the URL view at http://localhost:3001/user/
 router.post("/login", async (req, res) => {
 	console.log(req.body);
-	console.log(`Attempting login:\n`); //This console logs when you post to "/api/userActions/login" but then nothing
+	console.log(`Attempting login:\n`);
 	try {
 		const requestedUser = await User.findOne({
 			where: {
@@ -71,9 +71,30 @@ router.post("/login", async (req, res) => {
 	}
 });
 
-module.exports = router;
-
 //post requesting seeds at main page
+//the request body will be a Seed Request (or maybe multiple seedRequest))
+//using this example seedRequest as the request body works in insomnia
+// {
+//     "requestedSeed": 3,
+//     "seedoffers_id": 2
+//   }
+//localhost:3001/api/userActions/seedRequest
+router.post("/seedRequest", async (req, res) => {
+	console.log("a seed request has been attempted");
+	console.log(req.body); //should be an object of seedOffer objects
+	try {
+		const wantedSeeds = await SeedRequests.create({
+			...req.body, //spread operator, makes an array from the object...basically
+			user_id: req.session.user_id, //
+		});
+
+		res.status(200).json(wantedSeeds);
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+module.exports = router;
 
 //post offers of seeds
 //SeedOffers.create
