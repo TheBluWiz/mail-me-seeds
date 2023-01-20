@@ -81,7 +81,7 @@ router.post("/login", async (req, res) => {
 			console.log("User not Found!")
 			return res.status(400).json({ message: "No user found" });
 		}
-		const validUser = requestedUser.checkPassword(body.password);
+		const validUser = await requestedUser.checkPassword(body.password);
 		if (!validUser) {
 			console.log("Wrong Password!")
 			return res.status(400).json({ message: "Incorrect Password" });
@@ -116,7 +116,7 @@ router.put('/resetPassword', async (req, res) => {
 		})
 		console.log(`User:\n\n${JSON.stringify(user)}`)
 
-		user.password = req.body.password
+		user.password = await bcrypt.hash(req.body.password, 10)
 		await user.save();
 		console.log(`\n\nUser Saved`)
 		console.log(`\n\n${JSON.stringify(req.body)}`)
