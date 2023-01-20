@@ -32,8 +32,33 @@ router.get("/myoffers", async (req, res) => {
 	res.render("myoffers", { data });
 });
 
+// This is not yet complete
+router.get("/checkRequests/:myOffer", async (req, res) => {
+	const requestData = await SeedRequests.findAll({
+		where: {
+			seedoffers_id: req.params.myOffer
+		}
+	})
+	console.log(`\n\nRequest Data: ${JSON.stringify(requestData)}\n\n`)
+
+	const requests = requestData.map((request) => request.get({ plain: true }))
+	console.log(`\n\nRequests: ${JSON.stringify(requests)}\n\n`)
+	const users = []
+	// requests.forEach(request => {
+		
+	// });
+
+	const data = {
+		loggedIn: req.session.loggedIn,
+	}
+	res.render("checkRequests", { data })
+})
+
 router.get("/form", async (req, res) => {
-	res.render("offerform");
+	const data = {
+		loggedIn: req.session.loggedIn,
+	}
+	res.render("offerform", { data });
 });
 
 // router.get("/comments", async (req, res) => {
