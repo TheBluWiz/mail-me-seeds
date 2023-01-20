@@ -54,3 +54,14 @@
   background-color: yellowgreen;
 }
 
+@media screen and (max-width: 999px) {
+  
+  .border2 {
+    min-width: 300px;
+  }
+
+  .insideBorder {
+    min-width: 200px;
+  }
+  
+}
