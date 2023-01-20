@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, SeedRequests } = require("../../models");
+const { User, SeedRequests, EmailReset } = require("../../models");
 const bcrypt = require("bcrypt");
 
 //USER SIGN UP
@@ -76,11 +76,14 @@ router.post("/login", async (req, res) => {
 				email: req.body.email.trim(), //finds one user where the email is the email from the req.body
 			},
 		});
+		console.log(requestedUser)
 		if (!requestedUser) {
+			console.log("User not Found!")
 			return res.status(400).json({ message: "No user found" });
 		}
 		const validUser = requestedUser.checkPassword(req.body.password);
 		if (!validUser) {
+			console.log("Wrong Password!")
 			return res.status(400).json({ message: "Incorrect Password" });
 		}
 		req.session.save(() => {
@@ -95,6 +98,39 @@ router.post("/login", async (req, res) => {
 		return res.status(404).json(err);
 	}
 });
+
+router.put('/resetPassword', async (req, res) => {
+	try {
+		const resetRequest = await EmailReset.findOne({
+			where: {
+				resetLink: req.body.resetLink
+			}
+		})
+	
+		const user = await User.findOne({
+			where: {
+				id: resetRequest.user_id
+			}
+		})
+	
+		user.password = req.body.password
+		await user.save();
+
+		await EmailReset.destroy.findOne({
+			where: {
+				resetLink: req.body.resetLink
+			}
+		})
+		
+		console.log("Reset successful!")
+		res.status(200).json({ message: "Password Reset"})
+	}
+	catch (err) {
+		res.status(500)
+	}
+	
+
+})
 
 //post requesting seeds at main page
 //the request body will be a Seed Request (or maybe multiple seedRequest))

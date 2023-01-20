@@ -1,13 +1,25 @@
-<div>
-     {{!-- <nav class=""> --}}
-    <ul class="">
-      <li class=""><a href="/account">My Account</a></li>
-      <li class=""><a href="/">Find Seeds</a></li>
-      <li class=""><a href="/user/request ">Requested Seeds </a></li>
-      <li class=""><a href="/user/myoffers ">My seed offers   </a></li>
-    </ul>
-  {{!-- </nav> --}}
+<div class="container ctxtL">
+  {{! <nav class=""> }}
+
+  <section class="border2 m-5 py-2">
+      {{! may need different param }}
+  <h2>Welcome, {{data.username}}</h2>
+    <div class="py-2"><a href="/user/account"><button
+          class="insideBorder btnBg py-2 col-6"
+        >My Account</button></a></div>
+
+    <div class="py-2"><a href="/"><button
+          class="insideBorder btnBg py-2 col-6"
+        >Find Seeds</button></a></div>
+
+    <div class="py-2"><a href="/offers/request "><button
+          class="insideBorder btnBg py-2 col-6"
+        >Requested Seeds</button></a></div>
+
+    <div class="py-2"><a href="/offers/myoffers "><button
+          class="insideBorder btnBg py-2 col-6"
+        >My Seed Offers</button></a></div>
+
+  </section>
+  {{! </nav> }}
 </div>
-
-
-

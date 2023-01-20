@@ -1,5 +1,5 @@
 async function postData(url, data) {
-  console.log(`This data being sent to API:\n\n${data}`)
+  console.log(`This data being sent to API:\n\n${JSON.stringify(data)}`)
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -11,7 +11,7 @@ async function postData(url, data) {
 }
 
 async function updateData(url, data) {
-  console.log(`This data being sent to API:\n\n${data}`)
+  console.log(`This data being sent to API:\n\n${JSON.stringify(data)}`)
   const response = await fetch(url, {
     method: 'PUT',
     headers: {

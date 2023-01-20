@@ -24,16 +24,16 @@ const theFerryman = function (user, messageType, customLink) {
   switch (messageType) {
     case "password":
       message.subject = "Password Reset Request";
-      message.html = `<pre>Hi ${user.name},\n\nForgot your password?\nWe received a request to reset the password for your account.\n\nTo reset your password, click on the link below:\n</pre>https://localhost:3001/${customLink}`;
+      message.html = `<pre>Hi ${user.name},\n\nForgot your password?\nWe received a request to reset the password for your account.\n\nTo reset your password, click on the link below:\n</pre>http://localhost:3001/user/updatepassword/${customLink}`;
 
       break;
     case "request":
       message.subject = "Seeds Requested";
-      message.html = `<pre>Hi ${user.name},\n\nSomeone is interested in one of the seeds you offered.\n\nClick the link below to view the request.</pre>\n\nhttps://localhost:3001/${customLink}`
+      message.html = `<pre>Hi ${user.name},\n\nSomeone is interested in one of the seeds you offered.\n\nClick the link below to view the request.</pre>\n\nhttp://localhost:3001/${customLink}`
       break;
     case "shipping":
       message.subject = "Seeds Incoming!!";
-      message.html = `<pre>Hi ${user.name},\n\nThe seeds you requested have shipped!\n\nMake sure to leave a rating for the seeds here:</pre>\n\nhttps://localhost:3001/${customLink}`
+      message.html = `<pre>Hi ${user.name},\n\nThe seeds you requested have shipped!\n\nMake sure to leave a rating for the seeds here:</pre>\n\nhttp://localhost:3001/${customLink}`
       break;
   }
   sendMail(message);

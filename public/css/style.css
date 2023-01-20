@@ -1,0 +1,67 @@
+.border {
+  border: 5px solid black;
+}
+
+.border2 {
+  background-color: bisque;
+  border-radius: 25px;
+  border: 4px solid black;
+  padding: 20px;
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.btmbor {
+  border-bottom: 5px black dotted;
+}
+.accountBtns {
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.insideBorder {
+  width: 50%;
+  border-radius: 25px;
+  border: 5px solid black;
+}
+
+.insideBorder:hover {
+  width: 60%;
+  padding: 20px;
+  background-color: #cecece;
+  border: yellow 5px solid;
+}
+
+.ctxt {
+  text-align: center;
+}
+
+.ctxtL {
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+.btnBg {
+  background-color: yellow;
+}
+
+.cenAlign {
+  margin: 0 auto;
+}
+
+.bg1 {
+  background-color: yellowgreen;
+}
+
+@media screen and (max-width: 999px) {
+  
+  .border2 {
+    min-width: 300px;
+  }
+
+  .insideBorder {
+    min-width: 200px;
+  }
+  
+}

@@ -5,13 +5,14 @@
   <form>
     <div>
      <label for="new-password">New password</label>
-      <input type="text"/>
+      <input type="password" id="password">
     </div>
     <div>
       <label for="confirm-password">Confirm password</label>
-      <input type="password"/>
+      <input type="password" id="confirmPassword">
     </div>
-    <button>Reset password!</button>
+      <button data-resetlink={{resetLink}} id="resetBtn">Reset password!</button>
   </form>
 
-  <script></script>
+
+<script src="/js/create-np.js"></script>

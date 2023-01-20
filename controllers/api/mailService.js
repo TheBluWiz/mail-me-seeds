@@ -19,12 +19,13 @@ router.post("/resetPassword", async (req, res) => {
 				email: req.body.email,
 			},
 		});
+		console.log(`Requested User:\n\n${JSON.stringify(requestedUser)}`)
 		resetRequest = {
 			resetLink: uniqueLink,
 			user_id: requestedUser.id,
 		};
 		user = {
-			name: requestedUser.name,
+			name: requestedUser.username,
 			email: req.body.email,
 		};
 		const logRequest = await EmailReset.create(resetRequest);
