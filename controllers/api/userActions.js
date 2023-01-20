@@ -68,12 +68,12 @@ router.put('/updateMailing', async (req, res) => {
 //posting to /api/userActions/login
 //form is in the URL view at http://localhost:3001/user/
 router.post("/login", async (req, res) => {
-	console.log(req.body);
+	const body = req.body;
 	console.log(`Attempting login:\n`);
 	try {
 		const requestedUser = await User.findOne({
 			where: {
-				email: req.body.email.trim(), //finds one user where the email is the email from the req.body
+				email: body.email.trim(), //finds one user where the email is the email from the body
 			},
 		});
 		console.log(requestedUser)
@@ -81,7 +81,7 @@ router.post("/login", async (req, res) => {
 			console.log("User not Found!")
 			return res.status(400).json({ message: "No user found" });
 		}
-		const validUser = requestedUser.checkPassword(req.body.password);
+		const validUser = requestedUser.checkPassword(body.password);
 		if (!validUser) {
 			console.log("Wrong Password!")
 			return res.status(400).json({ message: "Incorrect Password" });
