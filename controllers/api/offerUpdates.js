@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { SeedRequests, SeedOffers, User } = require('../../models')
+const { theFerryman, linkGenerator } = require('../../utils')
 
 router.post('/requestSeed', async (req, res) => {
   const requests = await SeedRequests.findAll({
@@ -19,25 +20,33 @@ router.post('/requestSeed', async (req, res) => {
       seedoffers_id: req.body.seedID
     }
     const successfulRequest = await SeedRequests.create(request)
-    console.log(`Completed Request:\n\n${JSON.stringify(successfulRequest)}`)
+
     try {
-      console.log(`Seed Offer:\n\n${JSON.stringify(successfulRequest.seedoffers_id)}`)
-      const offer = SeedOffers.findOne({
+      console.log(`Seed Offer: ${JSON.stringify(Number(successfulRequest.seedoffers_id))}`)
+      const offer = await SeedOffers.findOne({
         where: {
-          id: successfulRequest.seedoffers_id
+          id: Number(successfulRequest.seedoffers_id)
         }
       })
       console.log(`Here is the offer${JSON.stringify(offer)}`)
-      const owner = await User.findOne({
+
+      const user = await User.findOne({
         where: {
           id: offer.user_id,
         }
       })
+      owner = {
+        name: user.dataValues.username,
+        email: user.dataValues.mailing
+      }
+
       console.log(owner)
+      const delivery = await theFerryman(owner, "request", offer.webLink)
+      console.log(delivery)
       res.status(200)
     }
     catch (err) {
-
+      console.log(err)
     }
   }
   catch (err) {
