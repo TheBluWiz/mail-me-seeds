@@ -81,7 +81,7 @@ router.post("/login", async (req, res) => {
 			console.log("User not Found!")
 			return res.status(400).json({ message: "No user found" });
 		}
-		const validUser = requestedUser.checkPassword(body.password);
+		const validUser = await requestedUser.checkPassword(body.password);
 		if (!validUser) {
 			console.log("Wrong Password!")
 			return res.status(400).json({ message: "Incorrect Password" });
