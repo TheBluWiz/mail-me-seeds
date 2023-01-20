@@ -22,7 +22,7 @@ router.post('/requestSeed', async (req, res) => {
     const successfulRequest = await SeedRequests.create(request)
 
     try {
-      console.log(`Seed Offer: ${JSON.stringify(Number(successfulRequest.seedoffers_id))}`)
+      console.log(`Seed Offer: ${JSON.stringify(successfulRequest.seedoffers_id)}`)
       const offer = await SeedOffers.findOne({
         where: {
           id: Number(successfulRequest.seedoffers_id)
@@ -37,7 +37,7 @@ router.post('/requestSeed', async (req, res) => {
       })
       owner = {
         name: user.dataValues.username,
-        email: user.dataValues.mailing
+        email: user.dataValues.email
       }
 
       // This part not finished

@@ -5,10 +5,15 @@ class SeedOffers extends Model {}
 
 SeedOffers.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
     webLink: {
       type: DataTypes.STRING,
       allowNull: false,
-      primaryKey: true,
     },
     seedName: {
     type: DataTypes.STRING,
