@@ -4,11 +4,8 @@
 
     <div>
   {{!-- where is posts coming from? --}}
-  {{#each posts}}
-    <a href=" ">
-      <span>{{offerform/seed-name}}</span>
-      <span>{{offerform/description}}</span>
-    </a>
+  {{#each data.myOffers}}
+  {{> myOffers}}
   {{/each}}
     </div>
 
