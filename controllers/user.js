@@ -29,6 +29,7 @@ router.get("/mailing", async (req, res) => {
 });
 
 router.get("/dashboard", async (req, res) => {
+  
   data = {
     loggedIn: req.session.loggedIn
   }
