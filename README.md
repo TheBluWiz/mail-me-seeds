@@ -20,9 +20,8 @@
 
 ## Description
 
-### Mail-Me-Seeds is a social resource sharing app for gardeners. Users create a profile that includes the
-
-climate hardiness zone where their garden is located, which vegetable or flower
+### Mail-Me-Seeds is a social resource sharing app for gardeners. 
+Users create a profile that includes the climate hardiness zone where their garden is located, which vegetable or flower
 seed varieties they have extras of to share, and which types of seeds they would be interested in
 receiving for free in the mail (For example, English Cucumbers, Heirloom Tomatoes, and Lupines). Users receive a list of recipient addresses when enough other gardeners have expressed interest in seeds that user is offering. Users can leave positive feedback for other users when they successfully receive and germinate seeds.
 

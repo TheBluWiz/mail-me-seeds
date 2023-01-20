@@ -28,7 +28,7 @@ SeedRequests.init(
   },
   {
     sequelize,
-    timestamps: true,
+    timestamps: true, 
     freezeTableName: true,
     // underscored: true,
     modelName: 'seedRequests',
@@ -36,3 +36,4 @@ SeedRequests.init(
 );
 
 module.exports = SeedRequests;
+//causing unknown column error in mysql
