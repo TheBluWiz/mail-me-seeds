@@ -51,8 +51,14 @@
 }
 
 .picFix {
-  max-width: 2000px;
-  max-height: 250px;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.picFix2 {
+  align-items: center;
+  max-width: 300px;
+  max-height: 300px;
 }
 
 .bg1 {
