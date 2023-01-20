@@ -64,7 +64,7 @@ router.get("/updatepassword/:resetLink", async (req, res) => {
 });
 
 router.get("/account", async (req, res) => {
-  res.render("construction");
+  res.render("/account");
 });
 
 module.exports = router;
