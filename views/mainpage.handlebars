@@ -1,14 +1,15 @@
 {{!-- KYLES BLOCK START --}}
 <div>
-{{!-- may need to futz with the sizing or arrangement of icon --}}
-  {{!-- <img src=" Our Seed icon/logo Here" alt="Mailbox shaped like and acorn"> --}}
   <h1 class="ctxt bg1">Welcome To Mail-Me-Seeds! </h1>
+  <div <a href="/"><img class="picFix2" src="https://res.cloudinary.com/dubimtz4j/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1674238160/growing_yv0pnf.jpg" alt="plants bursting forth from envelopes"></a></div>
+
   <div>
-    <h3 class="ctxt">This is a place where gardeners get seeds from gardeners. Would you like to get any of these seed varieties for free in your mail? </h3>
+    
+    <h3 class="ctxt">Where gardeners send seeds to gardeners. Would you like to get any of these seed varieties for free in your mail? </h3>
   </div>
 </div>
 <div class="border2">
-  <h2 class="ctxt">Posted Seed Offers!</h2>
+  <h2 class="ctxt">Posted Seed Offers:</h2>
   <div id="offers">
     {{#each data.currentOffers as |seedoffer|}}
     {{> seedoffer-details}}
