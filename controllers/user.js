@@ -29,6 +29,7 @@ router.get("/mailing", async (req, res) => {
 });
 
 router.get("/dashboard", async (req, res) => {
+  
   data = {
     loggedIn: req.session.loggedIn
   }
@@ -64,7 +65,7 @@ router.get("/updatepassword/:resetLink", async (req, res) => {
 });
 
 router.get("/account", async (req, res) => {
-  res.render("construction");
+  res.render("account");
 });
 
 module.exports = router;

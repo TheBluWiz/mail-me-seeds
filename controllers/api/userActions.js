@@ -87,7 +87,7 @@ router.post("/login", async (req, res) => {
 			return res.status(400).json({ message: "Incorrect Password" });
 		}
 		req.session.save(() => {
-			req.session.login = true;
+			req.session.loggedIn = true;
 			req.session.username = requestedUser.username;
 			req.session.userID = requestedUser.id;
 
@@ -101,31 +101,34 @@ router.post("/login", async (req, res) => {
 
 router.put('/resetPassword', async (req, res) => {
 	try {
+		const link = req.body.resetLink
 		const resetRequest = await EmailReset.findOne({
 			where: {
-				resetLink: req.body.resetLink
+				resetLink: link
 			}
 		})
-	
+		console.log(`Request:\n\n${JSON.stringify(resetRequest)}`)
+
 		const user = await User.findOne({
 			where: {
 				id: resetRequest.user_id
 			}
 		})
-	
+		console.log(`User:\n\n${JSON.stringify(user)}`)
+
 		user.password = req.body.password
 		await user.save();
+		console.log(`\n\nUser Saved`)
+		console.log(`\n\n${JSON.stringify(req.body)}`)
 
-		await EmailReset.destroy.findOne({
-			where: {
-				resetLink: req.body.resetLink
-			}
-		})
-		
+		await resetRequest.destroy();
+		console.log(`\n\nLink Destroyed`)
 		console.log("Reset successful!")
+
 		res.status(200).json({ message: "Password Reset"})
 	}
 	catch (err) {
+		console.log(err)
 		res.status(500)
 	}
 	

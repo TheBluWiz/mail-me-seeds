@@ -10,19 +10,18 @@
     <script src="/js/helpers.js"></script>
 </head>
  {{!-- this will thurn the entire background of the html to a yellow-green if we want --}}
- {{!-- <body class="bg1"> -- --}}
 <body class="bg1">
     <div> 
         
         {{!-- <img class="picFix" src="/images/Header-image.jpg" alt="seed Banner Image">
         <header class=""> --}}
             <div class="row ctxt">        
-                <div class="col-4"><button class="btn btn-large btnBg ctxtL"><a href="/user/dashboard">Dashboard</a></button></div> 
-                {{!-- <div class="col-4"><a href="/"><img src="/images/Header-image.jpg" alt="Mailbox made from seed logo"></a></div> --}}
+                <div class="col-4"><a href="/user/dashboard"><button class="btn btn-large btnBg ctxtL">Dashboard</button></a></button></div> 
+                <div class="col-4"><a href="/"><img src="../../public/images/Header-image.jpg" alt="Mailbox made from seed logo"></a></div>
                 {{#if data.loggedIn}}
-                <div class="col-4"><button class="btn btn-large btnBg ctxtL"><a href="/user/logout">Logout</a></button></div>
+                <div class="col-4"><a href="/user/logout"><button class="btn btn-large btnBg ctxtL">Logout</button></a></div>
                 {{else}}
-                <div class="col-4"><button class="btn btn-large btnBg ctxtL"><a href="/user/">Login</a></button></div>
+                <div class="col-4"><a href="/user/"><button class="btn btn-large btnBg ctxtL">Login</button></a></div>
                 {{/if}}
             </div>
         </header>
