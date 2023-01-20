@@ -4,14 +4,12 @@
 
     <div>
   {{!-- where is posts coming from? --}}
-  {{#each posts}}
-    <a href=" ">
-      <span>{{offerform/seed-name}}</span>
-      <span>{{offerform/description}}</span>
-    </a>
+  {{#each data.myOffers}}
+  {{> myOffers}}
   {{/each}}
     </div>
 
 </div>
 
 {{!-- i am rather confused here so when selected it should go to offer.handlebars to get a requested user name  --}}
+<script src="/js/myOffers.js"></script>
