@@ -15,9 +15,10 @@ resetBtnEl.addEventListener("click", (event) => {
       resetLink: resetBtnEl.dataset.resetlink,
       password: passwordEl.value
     }
-    console.log(data)
+    console.log(JSON.stringify(data))
     updateData('/api/userActions/resetPassword', data)
     .then((response) => {
+      console.log(`Response\n\n${response}`)
       if (response.ok) document.location.replace("user/")
       else alert("Try reset again later")
     })
