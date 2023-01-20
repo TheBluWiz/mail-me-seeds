@@ -5,7 +5,7 @@ offersEl.addEventListener("click", (event) => {
   if (event.target.innerHTML === "Seed Requested") return
   if (event.target.nodeName === "BUTTON") {
     let data = {
-      seedID: event.target.dataset.id
+      seedID: event.target.dataset.offerid
     }
     event.target.innerHTML = "Seed Requested"
     postData('/api/offerUpdates/requestSeed', data)
