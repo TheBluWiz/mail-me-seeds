@@ -17,15 +17,18 @@ router.get("/request", async (req, res) => {
 });
 
 router.get("/myoffers", async (req, res) => {
+	console.log(`UserID: ${JSON.stringify(req.session.userID)}\n\n`)
 	const myOffersData = await SeedOffers.findAll({
 		where: {
-			user_id: req.session.id
+			user_id: req.session.userID
 		}
 	})
+	console.log(`Offer Data: ${JSON.stringify(myOffersData)}\n\n`)
 	const data = {
 		loggedIn: req.session.loggedIn,
 		myOffers: myOffersData.map((offers) => offers.get({ plain: true }))
 	}
+	console.log(`Data: ${JSON.stringify(data)}\n\n`)
 	res.render("myoffers", { data });
 });
 
