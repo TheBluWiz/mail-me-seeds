@@ -116,7 +116,7 @@ router.put('/resetPassword', async (req, res) => {
 		})
 		console.log(`User:\n\n${JSON.stringify(user)}`)
 
-		user.password = await bcrypt.hash((req.body.password, 10))
+		user.password = await bcrypt.hash(req.body.password, 10)
 		await user.save();
 		console.log(`\n\nUser Saved`)
 		console.log(`\n\n${JSON.stringify(req.body)}`)
