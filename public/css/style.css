@@ -42,6 +42,12 @@
   font-size: 1.75rem;
 }
 
+.right_txtL {
+  text-align: right;
+  font-size: 1.75rem;
+}
+
+
 .btnBg {
   background-color: yellow;
 }
