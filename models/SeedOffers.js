@@ -9,7 +9,11 @@ SeedOffers.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
+    },
+    webLink: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     seedName: {
     type: DataTypes.STRING,
@@ -18,10 +22,7 @@ SeedOffers.init(
     offerDescription: {
       type: DataTypes.STRING,
     },
-    webLink: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+
     /**Maybe have image area? */
     user_id: {
       type: DataTypes.INTEGER,

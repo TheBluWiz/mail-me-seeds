@@ -5,11 +5,15 @@
     <div>
   {{!-- where is posts coming from? --}}
   {{#each data.myOffers}}
-  {{> myOffers}}
+  {{> myOffers-details}}
   {{/each}}
+    </div>
+    <div>
+      <a href="/offers/form">
+      <button type="submit" name="button to click for the user to request this seedOffer" class="btn btn-info accountBtns">New Offer</button>
+      </a>
     </div>
 
 </div>
 
 {{!-- i am rather confused here so when selected it should go to offer.handlebars to get a requested user name  --}}
-<script src="/js/myOffers.js"></script>

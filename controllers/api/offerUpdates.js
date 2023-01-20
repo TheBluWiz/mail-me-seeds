@@ -22,7 +22,7 @@ router.post('/requestSeed', async (req, res) => {
     const successfulRequest = await SeedRequests.create(request)
 
     try {
-      console.log(`Seed Offer: ${JSON.stringify(Number(successfulRequest.seedoffers_id))}`)
+      console.log(`Seed Offer: ${JSON.stringify(successfulRequest.seedoffers_id)}`)
       const offer = await SeedOffers.findOne({
         where: {
           id: Number(successfulRequest.seedoffers_id)
@@ -37,9 +37,10 @@ router.post('/requestSeed', async (req, res) => {
       })
       owner = {
         name: user.dataValues.username,
-        email: user.dataValues.mailing
+        email: user.dataValues.email
       }
 
+      // This part not finished
       console.log(owner)
       const delivery = await theFerryman(owner, "request", offer.webLink)
       console.log(delivery)
@@ -55,6 +56,36 @@ router.post('/requestSeed', async (req, res) => {
     res.status(500).json({ message: "Request Failed"})
   }
   
+})
+
+router.post('/newOffer', async (req, res) => {
+  try {
+    const newOffer = {
+      seedName: req.body.seedName,
+      offerDescription: req.body.offerDescription,
+      user_id: req.session.userID
+    }
+    console.log(`\n\nNew Offer${JSON.stringify(newOffer)}`)
+  
+    let uniqueLink = false;
+    while (!uniqueLink) {
+      let newLink = linkGenerator();
+      uniqueLink = await SeedOffers.findOne({
+        where: {
+          webLink: newLink,
+        },
+      });
+      if (uniqueLink === null) uniqueLink = newLink;
+    }
+    newOffer.webLink = uniqueLink;
+  
+    const postedOffer = await SeedOffers.create(newOffer);
+    res.status(200).json({ message: "Offer Posted"})
+  }
+  catch (err) {
+    console.log(err)
+    res.status(500)
+  }
 })
 
 module.exports = router;

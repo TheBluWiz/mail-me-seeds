@@ -29,7 +29,7 @@ const theFerryman = function (user, messageType, customLink) {
       break;
     case "request":
       message.subject = "Seeds Requested";
-      message.html = `<pre>Hi ${user.name},\n\nSomeone is interested in one of the seeds you offered.\n\nClick the link below to view the request.</pre>\n\nhttp://localhost:3001/${customLink}`
+      message.html = `<pre>Hi ${user.name},\n\nSomeone is interested in one of the seeds you offered.\n\nClick the link below to view the request.</pre>\n\nhttp://localhost:3001/offers/checkRequests/${customLink}`
       break;
     case "shipping":
       message.subject = "Seeds Incoming!!";
