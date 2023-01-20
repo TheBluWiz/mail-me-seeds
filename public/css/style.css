@@ -1,22 +1,36 @@
 .border {
-  border : 5px solid black
-}
-.brad {
-  border-radius: 40%;
-}
-.border2 {
-  border : 5px solid black;
-  max-width: 50%;
-  margin: 0 auto
+  border: 5px solid black;
 }
 
+.border2 {
+  background-color: bisque;
+  border-radius: 25px;
+  border: 4px solid black;
+  padding: 20px;
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.btmbor {
+  border-bottom: 5px black dotted;
+}
 .accountBtns {
-  border-radius: 37%;
+  border-radius: 25px;
   padding: 10px;
 }
 
-.kyleBorder {
-  border : 5px solid black
+.insideBorder {
+  width: 50%;
+  border-radius: 25px;
+  border: 5px solid black;
+}
+
+.insideBorder:hover {
+  width: 60%;
+  padding: 20px;
+  background-color: #cecece;
+  border: yellow 5px solid;
 }
 
 .ctxt {
@@ -27,21 +41,16 @@
   text-align: center;
   font-size: 1.75rem;
 }
-  
-.btnBg{
+
+.btnBg {
   background-color: yellow;
 }
 
-.cenAlign{
-  margin-left: 0;
-  margin-right: 0
+.cenAlign {
+  margin: 0 auto;
 }
 
 .bg1 {
   background-color: yellowgreen;
 }
 
-.kyleBorder:hover {
-  background-color: #cecece;
-  border: yellow 5px solid;
-}
