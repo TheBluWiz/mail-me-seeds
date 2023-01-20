@@ -50,12 +50,21 @@
   margin: 0 auto;
 }
 
+.picFix {
+  max-width: 2000px;
+  max-height: 250px;
+}
+
 .bg1 {
-  background-color: yellowgreen;
+  background-color: rgb(132, 161, 73);
 }
 
 @media screen and (max-width: 999px) {
   
+  .fieldControl {
+    max-width: 95%;
+  }
+
   .border2 {
     min-width: 300px;
   }
