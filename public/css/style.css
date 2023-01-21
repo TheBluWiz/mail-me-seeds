@@ -2,6 +2,8 @@
   border: 5px solid black;
 }
 
+
+
 .border2 {
   background-color: bisque;
   border-radius: 25px;
@@ -11,7 +13,10 @@
   height: auto;
   margin: 0 auto;
 }
-
+ .welcomeBrush {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 4.75rem;
+}
 .btmbor {
   border-bottom: 5px black dotted;
 }
@@ -33,6 +38,10 @@
   border: yellow 5px solid;
 }
 
+.inline {
+  display: inline-flexbox;
+} 
+
 .ctxt {
   text-align: center;
 }
@@ -46,7 +55,12 @@
   text-align: right;
   font-size: 1.75rem;
 }
-
+.float_right{
+  float: right;
+}
+.float_left{
+  float: left;
+}
 
 .btnBg {
   background-color: yellow;
@@ -54,6 +68,13 @@
 
 .cenAlign {
   margin: 0 auto;
+}
+
+.padding {
+  padding-top: 50px;
+  padding-right: 5%;
+  padding-bottom: 50px;
+  padding-left: 5%;
 }
 
 .picFix {
@@ -70,6 +91,7 @@
 .bg1 {
   background-color: rgb(132, 161, 73);
 }
+
 
 @media screen and (max-width: 999px) {
   
