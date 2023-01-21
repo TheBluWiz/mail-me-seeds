@@ -9,5 +9,12 @@ offersEl.addEventListener("click", (event) => {
     }
     event.target.innerHTML = "Seed Requested"
     postData('/api/offerUpdates/requestSeed', data)
+    .then((response) => {
+      if (response.ok) event.target.innerHTML = "Seed Requested"
+      else {
+        // Would like to make code additionally that checks if the offer belongs to the loggedIn user. Potentially add this code server side and differentiate in HTML.
+        event.target.innerHTML = "Already Requested"
+      }
+    })
   }
 })

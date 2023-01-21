@@ -1,64 +1,98 @@
 const router = require("express").Router();
-const { SeedRequests, User, SeedOffers } = require('../models')
+const { SeedRequests, User, SeedOffers } = require("../models");
 
 //localhost3001:/offers/
 
 router.get("/request", async (req, res) => {
-	const requestData = await SeedRequests.findAll({
-		where: {
-			user_id: req.session.id
-		}
-	})
-	const data = {
-		loggedIn: req.session.loggedIn,
-		personalRequests: requestData.map((requests) => requests.get({ plain: true }))
-	}
-	res.render("request", { data });
+  const requestData = await SeedRequests.findAll({
+    where: {
+      user_id: req.session.id,
+    },
+  });
+  const data = {
+    loggedIn: req.session.loggedIn,
+    personalRequests: requestData.map((requests) =>
+      requests.get({ plain: true })
+    ),
+  };
+  res.render("request", { data });
 });
 
 router.get("/myoffers", async (req, res) => {
-	console.log(`UserID: ${JSON.stringify(req.session.userID)}\n\n`)
-	const myOffersData = await SeedOffers.findAll({
-		where: {
-			user_id: req.session.userID
-		}
-	})
-	console.log(`Offer Data: ${JSON.stringify(myOffersData)}\n\n`)
-	const data = {
-		loggedIn: req.session.loggedIn,
-		myOffers: myOffersData.map((offers) => offers.get({ plain: true }))
-	}
-	console.log(`Data: ${JSON.stringify(data)}\n\n`)
-	res.render("myoffers", { data });
+  console.log(`UserID: ${JSON.stringify(req.session.userID)}\n\n`);
+  const myOffersData = await SeedOffers.findAll({
+    where: {
+      user_id: req.session.userID,
+    },
+  });
+  console.log(`Offer Data: ${JSON.stringify(myOffersData)}\n\n`);
+  const data = {
+    loggedIn: req.session.loggedIn,
+    myOffers: myOffersData.map((offers) => offers.get({ plain: true })),
+  };
+  console.log(`Data: ${JSON.stringify(data)}\n\n`);
+  res.render("myoffers", { data });
 });
 
 // This is not yet complete
 router.get("/checkRequests/:myOffer", async (req, res) => {
-	const requestData = await SeedRequests.findAll({
+  const requestData = await SeedOffers.findOne({
+    where: {
+      weblink: req.params.myOffer,
+    },
+  });
+  console.log(`\n\nRequest Data: ${JSON.stringify(requestData.id)}\n\n`);
+
+  const seedRequests = await SeedRequests.findAll({
+    where: {
+      seedoffers_id: requestData.id,
+    },
+  });
+
+  console.log(`\n\nSeed Requests:\n${JSON.stringify(seedRequests)}`);
+
+  let users = [];
+  seedRequests.forEach((element) => {
+    console.log(JSON.stringify(element));
+    console.log(element.user_id);
+		users.push(element.user_id)
+  });
+
+	console.log(`\n\nusers:\n${users}`)
+
+	userData = await User.findAll({
 		where: {
-			seedoffers_id: req.params.myOffer
+			id: users
 		}
 	})
-	console.log(`\n\nRequest Data: ${JSON.stringify(requestData)}\n\n`)
 
-	const requests = requestData.map((request) => request.get({ plain: true }))
-	console.log(`\n\nRequests: ${JSON.stringify(requests)}\n\n`)
-	const users = []
-	// requests.forEach(request => {
-		
-	// });
+	users = userData.map((user) => user.get({ plain: true }))
 
-	const data = {
-		loggedIn: req.session.loggedIn,
-	}
-	res.render("checkRequests", { data })
-})
+	console.log(`\n\nUserData:\n${JSON.stringify(users)}`)
+
+	let sanitizedUsers = []
+	users.forEach(user => {
+		requester = {
+			username: user.username,
+			mailing: user.mailing
+		}
+		sanitizedUsers.push(requester)
+	});
+
+	console.log(`\n\nsanitiedUsers:\n${JSON.stringify(sanitizedUsers)}`)
+
+  const data = {
+    loggedIn: req.session.loggedIn,
+		userRequests: sanitizedUsers
+  };
+  res.render("checkRequests", { data });
+});
 
 router.get("/form", async (req, res) => {
-	const data = {
-		loggedIn: req.session.loggedIn,
-	}
-	res.render("offerform", { data });
+  const data = {
+    loggedIn: req.session.loggedIn,
+  };
+  res.render("offerform", { data });
 });
 
 // router.get("/comments", async (req, res) => {
