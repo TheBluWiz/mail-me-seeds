@@ -9,5 +9,11 @@ offersEl.addEventListener("click", (event) => {
     }
     event.target.innerHTML = "Seed Requested"
     postData('/api/offerUpdates/requestSeed', data)
+    .then((response) => {
+      if (response.ok) event.target.innerHTML = "Seed Requested"
+      else {
+        event.target.innerHTML = "Already Requested"
+      }
+    })
   }
 })
