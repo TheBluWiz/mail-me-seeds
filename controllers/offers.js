@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const { SeedRequests, User, SeedOffers } = require("../models");
+const { withAuth } = require("../utils");
 
 //localhost3001:/offers/request
 //getting my seed requests, seeds that I have requested from other gardeners
-router.get("/request", async (req, res) => {
+router.get("/request", withAuth, async (req, res) => {
 	console.log(
 		`HEY, YOU JUST LOADED THE "My Seed Requests" page, and THIS IS YOUR UserID ${JSON.stringify(
 			req.session.userID
@@ -28,7 +29,7 @@ router.get("/request", async (req, res) => {
 	res.render("request", { data });
 });
 
-router.get("/myoffers", async (req, res) => {
+router.get("/myoffers", withAuth, async (req, res) => {
 	console.log(`UserID: ${JSON.stringify(req.session.userID)}\n\n`);
 	const myOffersData = await SeedOffers.findAll({
 		where: {
@@ -45,7 +46,7 @@ router.get("/myoffers", async (req, res) => {
 });
 
 // This is not yet complete
-router.get("/checkRequests/:myOffer", async (req, res) => {
+router.get("/checkRequests/:myOffer", withAuth, async (req, res) => {
 	const requestData = await SeedOffers.findOne({
 		where: {
 			weblink: req.params.myOffer,
@@ -98,7 +99,7 @@ router.get("/checkRequests/:myOffer", async (req, res) => {
 	res.render("checkRequests", { data });
 });
 
-router.get("/form", async (req, res) => {
+router.get("/form", withAuth, async (req, res) => {
 	const data = {
 		loggedIn: req.session.loggedIn,
 	};

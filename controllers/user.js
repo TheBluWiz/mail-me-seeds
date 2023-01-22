@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { EmailReset, User } = require("../models");
-const { findOne } = require("../models/User");
+const { withAuth } = require("../utils");
 
 //localhost3001:/user/  //note: user, It's not plural!
 //these routes are for delivering account related views to the user in the URL
@@ -21,7 +21,7 @@ router.get("/create-acct", async (req, res) => {
 	res.render("create-acct");
 });
 
-router.get("/mailing", async (req, res) => {
+router.get("/mailing", withAuth, async (req, res) => {
 	const data = {
 		loggedIn: req.session.loggedIn,
 	};
@@ -64,7 +64,7 @@ router.get("/updatepassword/:resetLink", async (req, res) => {
 	res.render("expired-link");
 });
 
-router.get("/account", async (req, res) => {
+router.get("/account", withAuth, async (req, res) => {
 	res.render("account");
 });
 
