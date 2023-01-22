@@ -1,12 +1,6 @@
-{{!-- const data = {
-		loggedIn: req.session.loggedIn,
-		myOffers: myOffersData.map((offers) => offers.get({ plain: true })),
-	}; --}}
-
 <div class="border2">
     <h2 class="ctxt">My Seed offers</h2>
     <h3 class="ctxt">Seeds that I am offering to other gardners:</h3>
-
     <div>
   {{#each data.myOffers}}
   {{> myOffers-details}}
