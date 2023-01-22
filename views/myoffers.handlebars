@@ -1,9 +1,13 @@
+{{!-- const data = {
+		loggedIn: req.session.loggedIn,
+		myOffers: myOffersData.map((offers) => offers.get({ plain: true })),
+	}; --}}
+
 <div class="border2">
     <h2 class="ctxt">My Seed offers</h2>
     <h3 class="ctxt">Seeds that I am offering to other gardners:</h3>
 
     <div>
-  {{!-- where is posts coming from? --}}
   {{#each data.myOffers}}
   {{> myOffers-details}}
   {{/each}}
@@ -16,4 +20,3 @@
 
 </div>
 
-{{!-- i am rather confused here so when selected it should go to offer.handlebars to get a requested user name  --}}

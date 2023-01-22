@@ -160,8 +160,10 @@ router.post("/seedRequest", async (req, res) => {
 
 module.exports = router;
 
+//TO DO LIST
+
 //post offers of seeds
-//SeedOffers.create
+//maybe SeedOffers.create
 //    /api/userActions/createOffer/
 
 //delete requests
@@ -172,7 +174,5 @@ module.exports = router;
 //SeedRequest find one and update
 
 //reset password
-//save for last
 
 //create a new password
-//save for last

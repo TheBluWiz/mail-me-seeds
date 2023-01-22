@@ -1,27 +1,28 @@
-<div>
-    <section class="border2 m-5 py-2">
-    <h2 class="ctxt">Here are the seeds your are currently requesting to receive in the mail.<br>
-        If you change your mind, you candelete a request by clicking "Delete".
-    </h2>
-    <div>
-        <h3 class="ctxt"><i>If seeds have already arrived in the mail,<br>click "Seeds Arrived" and leave a feedback.</i></h3>
-    </div>
 
-<div class="border2">
-    <h2 class="ctxt"></h2>
-    <h3 class="ctxt"></h3>
 
-    <div>
-  {{#each data.req-details}}
-  {{> req-details}}
-  {{/each}}
-    </div>
-    <div>
-      <a href="/">
-      <button type="submit" name="button to click for the user to request this seedOffer" class="btn btn-info accountBtns">Received</button>
-      </a>
-      <a href=""><button>Cancel</button></a>
-    </div>
+{{!-- This is the data object sent to http://localhost:3001/offers/request in offers.js
+const data = {
+		loggedIn: req.session.loggedIn,
+		personalRequests: requestData.map((requests) =>
+			requests.get({ plain: true }) --}}
 
+ 
+<div class="border2"> 
+    <h2 class="ctxt">My Seed Requests</h2>
+    <h3 class="ctxt">Seeds that I have requested from other gardners:</h3>
+<form>
+<div>   
+    {{#each data.personalRequests}}
+    {{> myRequests-details}}
+    {{/each}}
 </div>
-    </section>
+<div>
+    <a href=""><button class="insideBorder ctxt btnBg">Seed Received</button></a>
+    <a href=""><button class="insideBorder ctxt btnBg">Delete seed request</button></a>
+</div>
+</form>
+</div>
+
+
+     {{!-- note: it would be great to include a button that deletes the seed request --}}
+     

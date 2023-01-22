@@ -1,21 +1,21 @@
-{{!-- KYLES BLOCK START --}}
+<div class="welcomeBrush ctxt"><h1>Welcome to</h1></div><br>
+<div class="welcomeBrush ctxt"><h1>Mail-Me-Seeds!</h1></div>
+
 <div>
-{{!-- may need to futz with the sizing or arrangement of icon --}}
-  {{!-- <img src=" Our Seed icon/logo Here" alt="Mailbox shaped like and acorn"> --}}
-  <h1 class="ctxt bg1">Welcome To Mail-Me-Seeds!!!</h1>
+
+  <div class="ctxt"><a href="/"><img class="picFix2 border" src="https://res.cloudinary.com/dubimtz4j/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1674238160/growing_yv0pnf.jpg" alt="plants bursting forth from envelopes"></a></div>
+
   <div>
-    <h3 class="ctxt">Which of the following seeds would you like to request 
-    to get in the mail? Check the boxes to request that seed</h3>
+    <h3 class="ctxt padding">The app where gardeners mail their extra seeds to other gardeners. Would you like to receive any of the following seed varieties for free in the mail? </h3>
   </div>
 </div>
+
 <div class="border2">
-  <h2 class="ctxt">Posted Seed Offers!</h2>
+  <h2 class="ctxt">Posted Seed Offers:</h2>
   <div id="offers">
     {{#each data.currentOffers as |seedoffer|}}
     {{> seedoffer-details}}
     {{/each}}
   </div>
 </div>
-{{!-- fill in script path? --}}
 <script src="/js/mainpage.js"></script>
-{{!-- KYLES BLOCK FINISH --}}
