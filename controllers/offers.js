@@ -50,10 +50,11 @@ router.get("/request", withAuth, async (req, res) => {
 			offersDataArray
 		)} \n\n\n` // HERE IS THE OFFERS ARRAY AKA offersDataArray [{"id":1,"webLink":"33333","seedName":"Speckled Lettuce","offerDescription":"This is an unopned pack of lettuce seeds. I don't...
 	);
-
 	const data = {
 		loggedIn: req.session.loggedIn, //a boolean , keep this
 		//make a new key value pair in data called "wantedOffer" and program handlebars to us an "each" on it. see other examples below that jamie made.
+		//myOffers: myOffersData.map((offers) => offers.get({ plain: true })),
+		wantedOffers: offersDataArray.map((offers) => offers.get({ plain: true })),
 	};
 	res.render("request", { data });
 });
@@ -82,6 +83,7 @@ router.get("/myoffers", withAuth, async (req, res) => {
 	res.render("myoffers", { data });
 	//----------------------------------------------------------------------------------------------
 });
+
 router.get("/checkRequests/:myOffer", withAuth, async (req, res) => {
 	const requestData = await SeedOffers.findOne({
 		where: {
