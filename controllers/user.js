@@ -47,6 +47,13 @@ router.get("/reset-message", async (req, res) => {
   res.render("reset-message", { data });
 });
 
+router.get("/updateEmail", async (req, res) => {
+  data= {
+    loggedIn: req.session.updateEmail
+  }
+  res.redirect("updateEmail, { Data }")
+});
+
 router.get("/updatepassword/:resetLink", async (req, res) => {
   const resetRequest = await EmailReset.findOne({
     where: {
