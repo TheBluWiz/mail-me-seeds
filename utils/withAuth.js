@@ -1,5 +1,5 @@
 const withAuth = (req, res, next) => {
-  if (!req.session.login) res.render('login');
+  if (!req.session.loggedIn) res.render('login');
   else {
     next();
   }

@@ -75,7 +75,8 @@ router.get("/checkRequests/:myOffer", withAuth, async (req, res) => {
 	users.forEach(user => {
 		requester = {
 			username: user.username,
-			mailing: user.mailing
+			mailing: user.mailing,
+			userID: user.id
 		}
 		sanitizedUsers.push(requester)
 	});
@@ -84,8 +85,10 @@ router.get("/checkRequests/:myOffer", withAuth, async (req, res) => {
 
   const data = {
     loggedIn: req.session.loggedIn,
+		weblink: req.params.myOffer,
 		userRequests: sanitizedUsers
   };
+	console.log(`\n\nweblink: ${data.weblink}\n\n`)
   res.render("checkRequests", { data });
 });
 
