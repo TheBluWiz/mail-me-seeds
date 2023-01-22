@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { SeedRequests, User, SeedOffers } = require("../models");
 const { withAuth } = require("../utils");
 
+//localhost3001:/offers/
+
 //localhost3001:/offers/request
 //getting my seed requests, seeds that I have requested from other gardeners
 router.get("/request", withAuth, async (req, res) => {
@@ -15,15 +17,10 @@ router.get("/request", withAuth, async (req, res) => {
 			user_id: req.session.id,
 		},
 	});
-	console.log(
-		`HEY, THIS IS THE SEED REQUEST DATA!!!!: ${JSON.stringify(requestData)}\n\n`
-	);
 	const data = {
 		loggedIn: req.session.loggedIn,
-		personalRequests: requestData.map(
-			(
-				requests //should this work?
-			) => requests.get({ plain: true })
+		personalRequests: requestData.map((requests) =>
+			requests.get({ plain: true })
 		),
 	};
 	res.render("request", { data });
