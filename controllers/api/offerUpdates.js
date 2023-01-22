@@ -3,6 +3,9 @@ const { SeedRequests, SeedOffers, User } = require('../../models')
 const { theFerryman, linkGenerator } = require('../../utils')
 
 router.post('/requestSeed', async (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.status(500)
+  }
   const requests = await SeedRequests.findAll({
     where: {
       user_id: req.session.userID, 
