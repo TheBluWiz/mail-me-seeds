@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/helpers.js"></script>
 </head>
- {{!-- this will thurn the entire background of the html to a yellow-green if we want --}}
+ {{!-- this will turn the entire background of the html to a yellow-green if we want --}}
 <body class="bg1">
     <div> 
         <header 
@@ -19,11 +19,11 @@
              {{!-- class="row ctxt" --}}
              {{!-- class="inline" --}}
              >        
-                <div class="float_left"><a href="/user/dashboard"><button class="btn btn-large btnBg ctxtL">Dashboard</button></a></button></div>                          
+                <div class="m-3 float_left"><a href="/user/dashboard"><button class="btn btn-large btnBg ctxtL">Dashboard</button></a></button></div>                          
                 {{#if data.loggedIn}}
-                <div class= "float_right"><a href="/user/logout"><button class="btn btn-large btnBg ctxtL">Logout</button></a></div>
+                <div class="m-3 float_right"><a href="/user/logout"><button class="btn btn-large btnBg ctxtL">Logout</button></a></div>
                 {{else}}
-                <div class= "float_right"><a href="/user/"><button class="btn btn-large btnBg ctxtL">Login</button></a></div>
+                <div class="m-3 float_right"><a href="/user/"><button class="btn btn-large btnBg ctxtL">Login</button></a></div>
                 {{/if}}
               </div>    
         </header>
