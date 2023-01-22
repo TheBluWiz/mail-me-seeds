@@ -1,9 +1,11 @@
-{{!-- This partial will be rendered in request.handlebars  I copied this from the first part of myoffers-details.handlebars , hoping that "seedName" and "offerDescription" are still parts of "data" here--}}
 <div class="py-3 col-md-12">
   <div class="cenAlign ctxt insideBorder btnBg">
     <div class="">
-      <p> This is one myRequest details partial </p>
-      <p class="" name="SeedRequests-seedoffers_id">{{seedoffers_id}}</p>
+      <h3 class="" name="seedOffer-seedName">{{seedName}}</h3>
+      <p class="" name="seedDescription">{{offerDescription}}</p>
+    </div>
+
+      {{!-- <p class="" name="SeedRequests-seedoffers_id">{{seedoffers_id}}</p> --}}
     </div>
   </div>
 </div>
