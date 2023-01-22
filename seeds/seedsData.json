@@ -1,17 +1,44 @@
 [
   {
-    "seedName": "Potatoes",
-    "offerDescription": "Good for French Fries",
-    "seedCount": "22"
+    "seedName": "Speckled Lettuce" ,
+    "offerDescription": "This is an unopned pack of lettuce seeds. I don't like lettuce, so its yours if you want it",
+    "webLink": "33333"
   },
   {
-    "seedName": "Tomatoes",
-    "offerDescription": "Good for salsa",
-    "seedCount": "73"
+    "seedName": "Red-Rocket Heirloom Tomatoes",
+    "offerDescription": "There are about 100 seeds, about two grams, packed in 2021. Germination rate should be about 90%",
+    "webLink": "11111"
+
   },
   {
-    "seedName": "Cucumbers",
-    "offerDescription": "Good for salads",
-    "seedCount": "92"
+    "seedName": "English Cucumbers",
+    "offerDescription": "I ordered these seeds from Burpee seed co. I only needed 5 so you can have the other 20",
+    "webLink": "22222"
+  },
+  {
+    "seedName": "Sweet Peas",
+    "offerDescription": "Half a pack of sweet peas I got from the hardware store. Zone B climate. Frost hardy. Last years seeds. ",
+    "webLink": "44444"
+  },
+  {
+    "seedName": "Lemon Cucumbers ",
+    "offerDescription": "About 10 seeds. These are named for their yellow spherical appearance, they don't taste like lemons",
+    "webLink": "5555"
+  },
+  {
+    "seedName": "Rhubarb ",
+    "offerDescription": "I collected these from my rhubarb plant that went to seed. About a teaspoons worth of seeds",
+    "webLink": "66666"
+  },
+  {
+    "seedName": "Brocolli ",
+    "offerDescription": "This is half a pack of brand new brocolli seeds. I started mine in seed trays in February so I can harvest them by June",
+    "webLink": "77777"
+  },
+  {
+    "seedName": "Green Dragon Kale ",
+    "offerDescription": "This is about a third of a pack of kale for zone 2-b. It's two years old so needs to be used, maybe by you?",
+    "webLink": "88888"
   }
+
 ]

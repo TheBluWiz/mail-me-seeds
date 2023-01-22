@@ -5,15 +5,11 @@ class EmailReset extends Model {}
 
 EmailReset.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
     resetLink: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      primaryKey: true,
+      isUnique: true
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -25,9 +21,9 @@ EmailReset.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
-    underscored: true,
+    // underscored: true,
     modelName: 'emailReset',
   }
 );

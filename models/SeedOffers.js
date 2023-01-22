@@ -9,24 +9,20 @@ SeedOffers.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
-   seedName: {
+    webLink: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    seedName: {
     type: DataTypes.STRING,
     allowNull: false,
-    },
-    offerPostDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
     offerDescription: {
       type: DataTypes.STRING,
     },
-    seedCount : {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
+
     /**Maybe have image area? */
     user_id: {
       type: DataTypes.INTEGER,
@@ -38,10 +34,10 @@ SeedOffers.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
-    underscored: true,
-    modelName: "seedoffers",
+    // underscored: true,
+    modelName: "seedOffers",
   }
 );
 

@@ -1,10 +1,14 @@
-<div>
+<div class="border2 ctxt">
     <div>
-     <h2>Please Enter Address</h2>
+        <h2>Please Enter Address</h2>
     </div>
     <form>
-        <label for="Mailing address">Mailing address</label>
-        <input type="mailing address"/>
+        <div>
+            <label class="ctxtL" for="Mailing address">Mailing address:</label>
+        </div>
+        <textarea name="mailing" id="mailing" cols="30" rows="5" placeholder="Enter Full Address Here"></textarea>
     </form>
-        <button type="submit">Create account<a href="/dashboard"></a></button>
+        <button class="ctxtL btn btn-large btnBg py-1 mx-2" id="updateMailing">Update Address</button>
 </div>
+
+<script src="/js/mailing.js"></script>

@@ -11,15 +11,6 @@ SeedRequests.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    requestedSeed: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    requestPostDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -37,11 +28,12 @@ SeedRequests.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true, 
     freezeTableName: true,
-    underscored: true,
+    // underscored: true,
     modelName: 'seedRequests',
   }
 );
 
 module.exports = SeedRequests;
+//causing unknown column error in mysql
