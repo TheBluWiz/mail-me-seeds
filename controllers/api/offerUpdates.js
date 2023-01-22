@@ -91,4 +91,42 @@ router.post('/newOffer', async (req, res) => {
   }
 })
 
+router.post('/seedsMailed', async (req, res) => {
+  console.log(`\n\nData:\n${JSON.stringify(req.body)}`)
+
+  const userData = await User.findOne({
+    where: {
+      id: req.body.requestUserID
+    }
+  })
+  console.log(`\n\nData:\n${JSON.stringify(userData)}`)
+
+  const user = {
+    name: userData.username,
+    email: userData.email
+  }
+
+  await theFerryman(user, "shipping", req.body.webLink)
+
+  const seedOffer = await SeedOffers.findOne({
+    where: {
+      webLink: req.body.webLink
+    }
+  })
+
+  console.log(`\n\nSeed Offer:\n${JSON.stringify(seedOffer)}`)
+
+  // const seedRequest = await SeedRequests.findOne({
+  //   where: {
+  //     user_id: req.body.requestUserID,
+  //     seedoffers_id: seedOffer.id
+  //   }
+  // })
+
+  // seedRequest.sent = true;
+  // seedRequest.save();
+
+  res.status(200);
+})
+
 module.exports = router;
