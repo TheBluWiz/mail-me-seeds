@@ -25,6 +25,10 @@ SeedRequests.init(
         key: 'id',
       },
     },
+    sent: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   },
   {
     sequelize,
