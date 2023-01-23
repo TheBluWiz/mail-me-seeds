@@ -84,11 +84,11 @@ router.get("/myoffers", withAuth, async (req, res) => {
 	//----------------------------------------------------------------------------------------------
 });
 
-router.get("/checkRequests/:myOffer", withAuth, async (req, res) => {
+router.get("/checkRequests/:myOffer", async (req, res) => {
 	const requestData = await SeedOffers.findOne({
 		where: {
 			weblink: req.params.myOffer,
-			sent: false
+
 		},
 	});
 	console.log(`\n\nRequest Data: ${JSON.stringify(requestData.id)}\n\n`);
@@ -96,6 +96,7 @@ router.get("/checkRequests/:myOffer", withAuth, async (req, res) => {
 	const seedRequests = await SeedRequests.findAll({
 		where: {
 			seedoffers_id: requestData.id,
+			sent: false
 		},
 	});
 
@@ -137,7 +138,7 @@ router.get("/checkRequests/:myOffer", withAuth, async (req, res) => {
 		weblink: req.params.myOffer,
 		userRequests: sanitizedUsers,
 	};
-	console.log(`\n\nweblink: ${data.weblink}\n\n`);
+	// console.log(`\n\nweblink: ${data.weblink}\n\n`);
 	res.render("checkRequests", { data });
 });
 
