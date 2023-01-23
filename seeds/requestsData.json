@@ -1,11 +1,13 @@
 [
   {
     "requestedSeed": 1,
-    "seedoffers_id": 1
+    "seedoffers_id": 1,
+    "seedinfo": "tasty"
   },
   {
     "requestedSeed": 3,
-    "seedoffers_id": 2
+    "seedoffers_id": 2,
+    "seedinfo": "delicious"
   }
 ]
 
