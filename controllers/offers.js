@@ -88,6 +88,7 @@ router.get("/checkRequests/:myOffer", withAuth, async (req, res) => {
 	const requestData = await SeedOffers.findOne({
 		where: {
 			weblink: req.params.myOffer,
+			sent: false
 		},
 	});
 	console.log(`\n\nRequest Data: ${JSON.stringify(requestData.id)}\n\n`);

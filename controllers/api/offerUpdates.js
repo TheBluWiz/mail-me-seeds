@@ -116,15 +116,16 @@ router.post('/seedsMailed', async (req, res) => {
 
   console.log(`\n\nSeed Offer:\n${JSON.stringify(seedOffer)}`)
 
-  // const seedRequest = await SeedRequests.findOne({
-  //   where: {
-  //     user_id: req.body.requestUserID,
-  //     seedoffers_id: seedOffer.id
-  //   }
-  // })
 
-  // seedRequest.sent = true;
-  // seedRequest.save();
+  const seedRequest = await SeedRequests.findOne({
+    where: {
+      user_id: req.body.requestUserID,
+      seedoffers_id: seedOffer.id
+    }
+  })
+
+  seedRequest.sent = true;
+  seedRequest.save();
 
   res.status(200);
 })

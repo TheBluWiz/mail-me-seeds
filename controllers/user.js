@@ -81,6 +81,7 @@ data = {
 router.get("/account", withAuth, async (req, res) => {
 	data = {
 		loggedIn: req.session.loggedIn,
+		userid: req.session.userID
 	};
   res.render("account", { data });
 });
