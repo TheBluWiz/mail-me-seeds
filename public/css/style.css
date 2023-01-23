@@ -2,7 +2,11 @@
   border: 5px solid black;
 }
 
-
+.titleBg {
+  background-color: burlywood;
+  border: 3px black double;
+  border-radius: 25px;
+}
 
 .border2 {
   background-color: bisque;
@@ -94,17 +98,32 @@
 
 
 @media screen and (max-width: 999px) {
-  
+  .picFix2 {
+    max-width: 325px;
+    max-height: 325px;
+  }
+
   .fieldControl {
     max-width: 95%;
   }
 
   .border2 {
-    min-width: 300px;
+    min-width: 375px;
   }
 
   .insideBorder {
     min-width: 200px;
   }
   
+}
+
+@media screen and (max-width: 662px) {
+  .picFix2{
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .welcomeBrush{
+    font-size: 3.0rem;
+  }
 }
