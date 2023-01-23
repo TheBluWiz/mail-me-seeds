@@ -49,9 +49,9 @@ router.get("/reset-message", async (req, res) => {
 
 router.get("/updateEmail", async (req, res) => {
   data= {
-    loggedIn: req.session.updateEmail
+    loggedIn: req.session.loggedIn
   }
-  res.redirect("updateEmail, { Data }")
+  res.render("updateEmail", { data })
 });
 
 router.get("/updatepassword/:resetLink", async (req, res) => {

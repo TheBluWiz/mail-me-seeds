@@ -66,6 +66,13 @@ router.put('/updateMailing', async (req, res) => {
 })
 
 router.post('/updateEmail', async (req, res) => {
+	const user = await User.findOne({
+		where: {
+			id: req.session.userID
+		}
+	})
+	user.email = req.body.email;
+	await user.save();
 	res.status(200)
 })
 
