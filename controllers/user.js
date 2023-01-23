@@ -31,6 +31,7 @@ router.get("/mailing", async (req, res) => {
 router.get("/dashboard", async (req, res) => {
 	data = {
 		loggedIn: req.session.loggedIn,
+		username: req.session.username
 	};
 	//got rid of the superfluous dashboard button from the dashboard page by giving it a different layout handlebars called nodashbutton instead of main
 	res.render("dashboard", { data, layout: "nodashbutton" });
