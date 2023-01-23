@@ -71,7 +71,17 @@ router.get("/updatepassword/:resetLink", async (req, res) => {
 	res.render("expired-link");
 });
 
+router.get("/updateEmail", withAuth, async (req, res) => {
+data = {
+		loggedIn: req.session.loggedIn,
+	};
+  res.render("updateEmail", { data });
+})
+
 router.get("/account", withAuth, async (req, res) => {
+	data = {
+		loggedIn: req.session.loggedIn,
+	};
   res.render("account", { data });
 });
 

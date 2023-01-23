@@ -64,6 +64,10 @@ router.put('/updateMailing', async (req, res) => {
 	}
 })
 
+router.post('/updateEmail', async (req, res) => {
+	res.status(200)
+})
+
 //USER LOGIN
 //posting to /api/userActions/login
 //form is in the URL view at http://localhost:3001/user/
