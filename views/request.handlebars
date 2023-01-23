@@ -1,10 +1,24 @@
-<div class="border2">
-    <h2 class="ctxt">My Seed Requests</h2>
-    <img class="picFix", "ctxtL" src="https://res.cloudinary.com/dubimtz4j/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1674437477/wishforseeds_tjekdu.jpg" alt= dandelion pappus morphing into an envelope blowing in the wind" >
+
+
+{{!-- This is the data object sent to http://localhost:3001/offers/request in offers.js
+const data = {
+		loggedIn: req.session.loggedIn,
+		personalRequests: requestData.map((requests) =>
+			requests.get({ plain: true }) --}}
+
+ 
+<div class="border2 ctxt"> 
+    <h2 class="titleBg">My Seed Requests</h2>
     <h3 class="ctxt">Seeds that I have requested from other gardners:</h3>
-    <div>   
-    {{#each data.wantedOffers}}
-    {{> myRequests-details}}
-    {{/each}}
-    </div>
+    <form>
+        <div>   
+            {{#each data.wantedOffers}}
+            {{> myRequests-details}}
+            {{/each}}
+        </div>
+    </form>
 </div>
+
+
+     {{!-- note: it would be great to include a button that deletes the seed request --}}
+     

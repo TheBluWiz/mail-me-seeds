@@ -24,8 +24,8 @@ const sess = {
 	// Sets up session store
 	store: new SequelizeStore({
 		//rather than keeping sessions in server memory, puts them in database
-		db: sequelize,
-	}),
+		db: sequelize
+	})
 };
 
 app.use(session(sess));

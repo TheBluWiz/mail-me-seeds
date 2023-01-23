@@ -47,6 +47,13 @@ router.get("/reset-message", async (req, res) => {
 	res.render("reset-message", { data });
 });
 
+router.get("/updateEmail", async (req, res) => {
+  data= {
+    loggedIn: req.session.loggedIn
+  }
+  res.render("updateEmail", { data })
+});
+
 router.get("/updatepassword/:resetLink", async (req, res) => {
 	const resetRequest = await EmailReset.findOne({
 		where: {
@@ -64,7 +71,18 @@ router.get("/updatepassword/:resetLink", async (req, res) => {
 	res.render("expired-link");
 });
 
+router.get("/updateEmail", withAuth, async (req, res) => {
+data = {
+		loggedIn: req.session.loggedIn,
+	};
+  res.render("updateEmail", { data });
+})
+
 router.get("/account", withAuth, async (req, res) => {
+	data = {
+		loggedIn: req.session.loggedIn,
+		userid: req.session.userID
+	};
   res.render("account", { data });
 });
 
