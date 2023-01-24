@@ -33,7 +33,6 @@ router.get("/dashboard", async (req, res) => {
 		loggedIn: req.session.loggedIn,
 		username: req.session.username
 	};
-	//got rid of the superfluous dashboard button from the dashboard page by giving it a different layout handlebars called nodashbutton instead of main
 	res.render("dashboard", { data, layout: "nodashbutton" });
 });
 
@@ -49,10 +48,10 @@ router.get("/reset-message", async (req, res) => {
 });
 
 router.get("/updateEmail", async (req, res) => {
-  data= {
-    loggedIn: req.session.loggedIn
-  }
-  res.render("updateEmail", { data })
+	data = {
+		loggedIn: req.session.loggedIn,
+	};
+	res.render("updateEmail", { data });
 });
 
 router.get("/updatepassword/:resetLink", async (req, res) => {
@@ -73,18 +72,18 @@ router.get("/updatepassword/:resetLink", async (req, res) => {
 });
 
 router.get("/updateEmail", withAuth, async (req, res) => {
-data = {
+	data = {
 		loggedIn: req.session.loggedIn,
 	};
-  res.render("updateEmail", { data });
-})
+	res.render("updateEmail", { data });
+});
 
 router.get("/account", withAuth, async (req, res) => {
 	data = {
 		loggedIn: req.session.loggedIn,
-		userid: req.session.userID
+		userid: req.session.userID,
 	};
-  res.render("account", { data });
+	res.render("account", { data });
 });
 
 module.exports = router;
