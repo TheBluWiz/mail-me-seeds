@@ -8,4 +8,7 @@ offersEl.addEventListener("click", (event) => {
 		deleteData("/api/offerUpdates/offers", data);
 		event.target.parentElement.parentElement.parentElement.remove();
 	}
+	if (event.target.innerHTML === "View Request") {
+		document.location.replace(`/offers/checkRequests/${event.target.dataset.weblink}`)
+	}
 });
