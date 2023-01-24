@@ -102,9 +102,9 @@
 }
 
 .bg1 {
+  background-image: url('https://res.cloudinary.com/dubimtz4j/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1674539633/seed_scatter_e7qn4b.jpg');
   background-color: rgb(132, 161, 73);
 }
-
 
 @media screen and (max-width: 999px) {
   .picFix2 {
