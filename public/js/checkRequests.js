@@ -11,9 +11,7 @@ requestContainerEl.addEventListener("click", (event) => {
     // Add Post Data info!!
     postData("/api/offerUpdates/seedsMailed", data).then((response) => {
       console.log(response);
-      if (response.ok) {
-        event.target.innerHTML = "Sent"
-      }
+      event.target.innerHTML = "Sent"
     });
   }
 });
