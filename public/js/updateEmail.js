@@ -1,12 +1,19 @@
-const emailEl = document.getElementById("email");
+const newEmailEl = document.getElementById("newEmail");
+const confirmEmailEl = document.getElementById("confirmEmail");
 const updateEmailBtnEl = document.getElementById("updateEmailBtn");
 
 updateEmailBtnEl.addEventListener("click", (event) => {
   event.preventDefault();
-  data = {
-    email: emailEl.value
+  if (newEmailEl.value === "") return;
+  if (newEmailEl.value === confirmEmailEl.value) {
+    data = {
+      email: newEmailEl.value,
+    };
+    const response = postData("/api/userActions/updateEmail", data);
+    document.location.replace('/user/dashboard')
+  } else {
+    alert("Emails Don't Match");
+    newEmailEl.value = "";
+    confirmEmailEl.value = "";
   }
-  postData('/api/userActions/updateEmail', data).then((response) => {
-    if (response.ok) document.location.replace('/user/dashboard')
-  })
-})
+});

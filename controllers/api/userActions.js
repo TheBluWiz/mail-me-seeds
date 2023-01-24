@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User, SeedRequests, EmailReset } = require("../../models");
 const bcrypt = require("bcrypt");
+const { linkGenerator, theFerryman } = require('../../utils')
 
 //USER SIGN UP
 // this is the back end, information will come from the front end at /user/create-acct
@@ -65,6 +66,13 @@ router.put('/updateMailing', async (req, res) => {
 })
 
 router.post('/updateEmail', async (req, res) => {
+	const user = await User.findOne({
+		where: {
+			id: req.session.userID
+		}
+	})
+	user.email = req.body.email;
+	await user.save();
 	res.status(200)
 })
 
@@ -161,6 +169,41 @@ router.post("/seedRequest", async (req, res) => {
 		res.status(500).json(err);
 	}
 });
+
+router.post('/resetRedirect', async (req, res) => {
+	let uniqueLink = false;
+	while (!uniqueLink) {
+		let newLink = linkGenerator();
+		uniqueLink = await EmailReset.findOne({
+			where: {
+				resetLink: newLink,
+			},
+		});
+		if (uniqueLink === null) uniqueLink = newLink;
+	}
+	resetRequest = {
+		resetLink: uniqueLink,
+		user_id: req.body.userID
+	}
+
+	requestedUser = await User.findOne({
+		where: {
+			id: req.body.userID,
+		},
+	});
+
+	user = {
+		name: requestedUser.username,
+		email: requestedUser.email
+	}
+	
+	await EmailReset.create(resetRequest)
+
+	await theFerryman(user, "password", uniqueLink);
+	
+	res.status(200).json({ message: `/user/updatepassword/${uniqueLink}`})
+})
+
 
 module.exports = router;
 

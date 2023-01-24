@@ -1,5 +1,13 @@
+/* :root {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+} */
+
 .border {
   border: 5px solid black;
+}
+
+.border-below {
+  border-bottom: 3px solid burlywood;
 }
 
 .titleBg {
@@ -114,13 +122,16 @@
   .insideBorder {
     min-width: 200px;
   }
+  .welcomeBrush{
+    font-size: 4.0rem;
+  }
   
 }
 
 @media screen and (max-width: 662px) {
   .picFix2{
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 300px;
+    max-height: 300px;
   }
 
   .welcomeBrush{

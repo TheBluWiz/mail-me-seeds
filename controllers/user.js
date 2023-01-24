@@ -31,6 +31,7 @@ router.get("/mailing", withAuth, async (req, res) => {
 router.get("/dashboard", async (req, res) => {
 	data = {
 		loggedIn: req.session.loggedIn,
+		username: req.session.username
 	};
 	//got rid of the superfluous dashboard button from the dashboard page by giving it a different layout handlebars called nodashbutton instead of main
 	res.render("dashboard", { data, layout: "nodashbutton" });
@@ -49,9 +50,9 @@ router.get("/reset-message", async (req, res) => {
 
 router.get("/updateEmail", async (req, res) => {
   data= {
-    loggedIn: req.session.updateEmail
+    loggedIn: req.session.loggedIn
   }
-  res.redirect("updateEmail, { Data }")
+  res.render("updateEmail", { data })
 });
 
 router.get("/updatepassword/:resetLink", async (req, res) => {
@@ -81,6 +82,7 @@ data = {
 router.get("/account", withAuth, async (req, res) => {
 	data = {
 		loggedIn: req.session.loggedIn,
+		userid: req.session.userID
 	};
   res.render("account", { data });
 });
