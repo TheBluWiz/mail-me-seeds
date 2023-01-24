@@ -35,6 +35,7 @@ You can access our site [here](https://mail-me-seeds.herokuapp.com)!
 ## Going Forward
 - We aim to allow for climate regions to be included in seed offers, and to add the ability to search seeds available for the users climate region. 
 - We would love to eventually expand to include user home pages, and seed offer commenting to gauge potential quality of offers.
+- Additional error reporting would be beneficial when we have time. Currenly if there is an issue creating and account or signing in, our site doesn't tell you why. Examples: user already exists. Incorrect username or password. etc.
 
 ## License
 
