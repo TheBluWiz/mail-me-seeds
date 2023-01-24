@@ -1,6 +1,14 @@
+/* :root {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+} */
+
 .border {
   border: 5px solid black;
   border-radius: 25px;
+}
+
+.border-below {
+  border-bottom: 3px solid burlywood;
 }
 
 .titleBg {
