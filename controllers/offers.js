@@ -48,12 +48,11 @@ router.get("/request", withAuth, async (req, res) => {
 	console.log(
 		`\n\n HERE IS THE OFFERS ARRAY AKA offersDataArray ${JSON.stringify(
 			offersDataArray
-		)} \n\n\n` // HERE IS THE OFFERS ARRAY AKA offersDataArray [{"id":1,"webLink":"33333","seedName":"Speckled Lettuce","offerDescription":"This is an unopned pack of lettuce seeds. I don't...
+		)} \n\n\n` // HERE IS THE OFFERS ARRAY AKA offersDataArray [{"id":1,"webLink":"33333","seedName":"Speckled Lettuce","offerDescription":"This is an unopned pack of lettuce seeds. I don't...}...
 	);
 	const data = {
 		loggedIn: req.session.loggedIn, //a boolean , keep this
-		//make a new key value pair in data called "wantedOffer" and program handlebars to us an "each" on it. see other examples below that jamie made.
-		//myOffers: myOffersData.map((offers) => offers.get({ plain: true })),
+		//make a new key value pair in data called "wantedOffer" and program handlebars to us an "each" on it.
 		wantedOffers: offersDataArray.map((offers) => offers.get({ plain: true })),
 	};
 	res.render("request", { data });
@@ -88,7 +87,6 @@ router.get("/checkRequests/:myOffer", async (req, res) => {
 	const requestData = await SeedOffers.findOne({
 		where: {
 			weblink: req.params.myOffer,
-
 		},
 	});
 	console.log(`\n\nRequest Data: ${JSON.stringify(requestData.id)}\n\n`);
@@ -96,7 +94,7 @@ router.get("/checkRequests/:myOffer", async (req, res) => {
 	const seedRequests = await SeedRequests.findAll({
 		where: {
 			seedoffers_id: requestData.id,
-			sent: false
+			sent: false,
 		},
 	});
 
