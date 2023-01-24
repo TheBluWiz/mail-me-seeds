@@ -21,3 +21,15 @@ async function updateData(url, data) {
   })
   return response;
 }
+
+async function deleteData(url, data) {
+  console.log(`This data being sent to API:\n\n${JSON.stringify(data)}`)
+  const response = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  return response;
+}
