@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { EmailReset, User } = require("../models");
-const { findOne } = require("../models/User");
+const { withAuth } = require("../utils");
 
 //localhost3001:/user/  //note: user, It's not plural!
 //these routes are for delivering account related views to the user in the URL
@@ -21,7 +21,7 @@ router.get("/create-acct", async (req, res) => {
 	res.render("create-acct");
 });
 
-router.get("/mailing", async (req, res) => {
+router.get("/mailing", withAuth, async (req, res) => {
 	const data = {
 		loggedIn: req.session.loggedIn,
 	};
@@ -48,6 +48,13 @@ router.get("/reset-message", async (req, res) => {
 	res.render("reset-message", { data });
 });
 
+router.get("/updateEmail", async (req, res) => {
+  data= {
+    loggedIn: req.session.loggedIn
+  }
+  res.render("updateEmail", { data })
+});
+
 router.get("/updatepassword/:resetLink", async (req, res) => {
 	const resetRequest = await EmailReset.findOne({
 		where: {
@@ -65,8 +72,19 @@ router.get("/updatepassword/:resetLink", async (req, res) => {
 	res.render("expired-link");
 });
 
-router.get("/account", async (req, res) => {
-	res.render("account");
+router.get("/updateEmail", withAuth, async (req, res) => {
+data = {
+		loggedIn: req.session.loggedIn,
+	};
+  res.render("updateEmail", { data });
+})
+
+router.get("/account", withAuth, async (req, res) => {
+	data = {
+		loggedIn: req.session.loggedIn,
+		userid: req.session.userID
+	};
+  res.render("account", { data });
 });
 
 module.exports = router;

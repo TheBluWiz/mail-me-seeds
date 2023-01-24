@@ -33,7 +33,7 @@ const theFerryman = function (user, messageType, customLink) {
       break;
     case "shipping":
       message.subject = "Seeds Incoming!!";
-      message.html = `<pre>Hi ${user.name},\n\nThe seeds you requested have shipped!\n\nMake sure to leave a rating for the seeds here:</pre>\n\nhttp://localhost:3001/${customLink}`
+      message.html = `<pre>Hi ${user.name},\n\nThe seeds you requested have shipped!\n\nMake sure to leave a rating for the seeds here:</pre>\n\nhttp://localhost:3001/offers/request`
       break;
   }
   sendMail(message);

@@ -25,10 +25,14 @@ SeedRequests.init(
         key: 'id',
       },
     },
+    sent: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   },
   {
     sequelize,
-    timestamps: true, 
+    // timestamps: true, 
     freezeTableName: true,
     // underscored: true,
     modelName: 'seedRequests',

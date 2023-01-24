@@ -6,16 +6,20 @@ const data = {
 		personalRequests: requestData.map((requests) =>
 			requests.get({ plain: true }) --}}
 
-
-<div class="border2">
-    <h2 class="ctxt">My Seed Requests</h2>
+ 
+<div class="border2 ctxt"> 
+    <h2 class="titleBg">My Seed Requests</h2>
     <h3 class="ctxt">Seeds that I have requested from other gardners:</h3>
+    <form>
+        <div id="offersContainer">   
+            {{#each data.wantedOffers}}
+            {{> myRequests-details}}
+            {{/each}}
+        </div>
+    </form>
 </div>
-<div>   
-    {{#each data.personalRequests}}
-    {{> myRequests-details}}
-    {{/each}}
-</div>
+<script src="/js/request.js"></script>
+
 
      {{!-- note: it would be great to include a button that deletes the seed request --}}
      

@@ -1,37 +1,11 @@
-{{!-- This partial will be rendered in request.handlebars  I copied this from the first part of myoffers-details.handlebars , hoping that "seedName" and "offerDescription" are still parts of "data" here--}}
-<div class="py-3 col-md-12">
+<div class="titleBg py-3 col-md-12">
   <div class="cenAlign ctxt insideBorder btnBg">
     <div class="">
-      <p> This is one myRequest details partial </p>
-      <p class="" name="SeedRequests-seedoffers_id">{{seedoffers_id}}</p>
+      <h3 class="border-below" name="seedOffer-seedName">{{seedName}}</h3>
+      <p class="" name="seedDescription">{{offerDescription}}</p>
     </div>
+
   </div>
+  <button class="insideBorder ctxt btnBg" data-offerid="{{id}}">I have received this seed in the mail!</button>
+  <button class="insideBorder ctxt btnBg" data-offerid="{{id}}">Nevermind, I no longer want this seed.</button>
 </div>
-  
-
-
-
-
-  {{!-- SeedRequests.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
-    seedoffers_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'seedOffers',
-        key: 'id',
-      },
-    },
-  }, --}}

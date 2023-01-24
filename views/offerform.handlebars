@@ -1,21 +1,34 @@
 <div>
-  <p>What seeds are you offering to other gardners? Please describe the amount, type, and anything a gardner should
-    know.</p>
 
-  <form>
-    <div>
-      <!-- <input value="{{post.id}}"/> might be some use-->
-      <div>
-        <label>Seed Name</label>
-        <input type="text" , id="seedName">
-        <label>Description</label>
-        <textarea id="offerDescription"></textarea>
-      </div>
-      <button id="postOffer">Post Offer</button>
-    </div>
-  </form>
+</div>
+<form>
   <div>
-      <a href="/offers/myoffers"><button>Cancel</button></a>
+    <!-- <input value="{{post.id}}"/> might be some use-->
+    <div class="mt-4 border2 ctxt">
+      <h3>What seeds are you offering to other gardners? Please
+        describe the amount, type, and anything a gardner should know.</h3>
+      <div>
+        <label class="ctxtL">Seed Name:</label>
+        <input class="fieldControl ctxtL" type="text" id="seedName" />
+      </div>
+      <div>
+        <label class="ctxtL">Description:</label>
+        <textarea class="fieldControl ctxtL" id="offerDescription"></textarea>
+      </div>
+      
+      <div>
+        <button class="insideBorder btnBg ctxtL" id="postOffer">Post Offer</button>
+      </div>
+      <div>
+      <a href="/offers/myoffers"><button
+          class="insideBorder btnBg ctxtL"
+        >Cancel</button></a>
+      </div>
+    </div>
+
+  </div>
+</form>
+<div>
 
 </div>
 <script src="/js/offerForm.js"></script>

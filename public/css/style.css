@@ -1,8 +1,20 @@
+/* :root {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+} */
+
 .border {
   border: 5px solid black;
 }
 
+.border-below {
+  border-bottom: 3px solid burlywood;
+}
 
+.titleBg {
+  background-color: burlywood;
+  border: 3px black double;
+  border-radius: 25px;
+}
 
 .border2 {
   background-color: bisque;
@@ -94,17 +106,35 @@
 
 
 @media screen and (max-width: 999px) {
-  
+  .picFix2 {
+    max-width: 325px;
+    max-height: 325px;
+  }
+
   .fieldControl {
     max-width: 95%;
   }
 
   .border2 {
-    min-width: 300px;
+    min-width: 375px;
   }
 
   .insideBorder {
     min-width: 200px;
   }
+  .welcomeBrush{
+    font-size: 4.0rem;
+  }
   
+}
+
+@media screen and (max-width: 662px) {
+  .picFix2{
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .welcomeBrush{
+    font-size: 3.0rem;
+  }
 }
