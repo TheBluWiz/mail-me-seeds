@@ -2,6 +2,24 @@ const router = require("express").Router();
 const { SeedRequests, SeedOffers, User } = require('../../models')
 const { theFerryman, linkGenerator } = require('../../utils')
 
+router.delete('/request', async (req, res) => {
+  try {
+    if (req.session.loggedIn) {
+      const request = await SeedRequests.findOne({
+        where: {
+          user_id: req.session.userID,
+          seedoffers_id: req.body.offerID
+        }
+      })
+      request.destroy();
+    }
+    res.status(200)
+  }
+  catch (err) {
+    res.status(404)
+  }
+})
+
 router.post('/requestSeed', async (req, res) => {
   if (!req.session.loggedIn) {
     return res.status(500)
