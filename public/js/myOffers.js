@@ -1,7 +1,7 @@
 const offersEl = document.getElementById("offers");
 offersEl.addEventListener("click", (event) => {
 	event.preventDefault();
-	if (event.target.innerHTML === "Delete This Request") {
+	if (event.target.innerHTML === "Delete This Offer") {
 		let data = {
 			offerID: event.target.dataset.offerid,
 		};
